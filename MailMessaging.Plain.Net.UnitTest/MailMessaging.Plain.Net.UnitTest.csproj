@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F8D3067C-AEEA-4AD9-B204-8A423A0B06A4}</ProjectGuid>
+    <ProjectGuid>{0F9C73F7-42AA-4C07-ADF5-CE3669C10778}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MailMessaging.Net.IntegrationTest</RootNamespace>
-    <AssemblyName>MailMessaging.Net.IntegrationTest</AssemblyName>
+    <RootNamespace>MailMessaging.Plain.Net.UnitTest</RootNamespace>
+    <AssemblyName>MailMessaging.Plain.Net.UnitTest</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -42,9 +42,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MailMessaging.Net\MailMessaging.Net.csproj">
-      <Project>{346fe1e5-be96-4215-8bd1-6beda14997d4}</Project>
-      <Name>MailMessaging.Net</Name>
+    <ProjectReference Include="..\MailMessaging.Plain.Net\MailMessaging.Plain.Net.csproj">
+      <Project>{63c3d78a-2708-4420-9af0-6bc917523113}</Project>
+      <Name>MailMessaging.Plain.Net</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

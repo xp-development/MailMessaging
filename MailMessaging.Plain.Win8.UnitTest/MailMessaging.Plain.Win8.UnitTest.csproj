@@ -5,11 +5,11 @@
     <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{55FF21D8-6736-4EC3-9A98-5093765387A4}</ProjectGuid>
+    <ProjectGuid>{C5EE4AA2-7367-4C09-AB85-02BF05086DD2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MailMessaging.Pcl</RootNamespace>
-    <AssemblyName>MailMessaging.Pcl</AssemblyName>
+    <RootNamespace>MailMessaging.Plain.Win8.UnitTest</RootNamespace>
+    <AssemblyName>MailMessaging.Plain.Win8.UnitTest</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -35,9 +35,9 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
-    <ProjectReference Include="..\MailMessaging.Common\MailMessaging.Common.csproj">
-      <Project>{d72c0189-72d6-40de-b78e-b9e7edd43e3b}</Project>
-      <Name>MailMessaging.Common</Name>
+    <ProjectReference Include="..\MailMessaging.Plain.Win8\MailMessaging.Plain.Win8.csproj">
+      <Project>{5cc28467-1f02-495c-a131-aed7d7a80915}</Project>
+      <Name>MailMessaging.Plain.Win8</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

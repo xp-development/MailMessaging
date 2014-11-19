@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MailMessaging.Net.IntegrationTest")]
+[assembly: AssemblyTitle("MailMessaging.Plain.Core.UnitTest")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MailMessaging.Net.IntegrationTest")]
+[assembly: AssemblyProduct("MailMessaging.Plain.Core.UnitTest")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("2bf64a44-c598-410e-b8b0-b48e68bf7e2b")]
+[assembly: Guid("c6f5b3f0-7372-4507-9d45-41aa80bd21aa")]
 
 // Version information for an assembly consists of the following four values:
 //

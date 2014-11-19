@@ -5,11 +5,11 @@
     <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0EC67C7A-E843-440E-B8D4-9809FB40EE0C}</ProjectGuid>
+    <ProjectGuid>{9DB4B409-832D-4A2C-B462-49C1091A6EB0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MailMessaging.Common.UnitTest</RootNamespace>
-    <AssemblyName>MailMessaging.Common.UnitTest</AssemblyName>
+    <RootNamespace>MailMessaging.Plain.Core</RootNamespace>
+    <AssemblyName>MailMessaging.Plain.Core</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -35,10 +35,6 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
-    <ProjectReference Include="..\MailMessaging.Common\MailMessaging.Common.csproj">
-      <Project>{d72c0189-72d6-40de-b78e-b9e7edd43e3b}</Project>
-      <Name>MailMessaging.Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

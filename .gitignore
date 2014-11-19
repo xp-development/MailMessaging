@@ -1,13 +1,3 @@
-MailMessaging.Common.UnitTest/obj/**/
-MailMessaging.Common/bin/**/
-MailMessaging.Common/obj/**/
-MailMessaging.Net.IntegrationTest/obj/**/
-MailMessaging.Net/bin/**/
-MailMessaging.Net/obj/**/
-MailMessaging.Pcl.IntegrationTest/obj/**/
-MailMessaging.Pcl/bin/**/
-MailMessaging.Pcl/obj/**/
+**/obj/Debug/**
+**/bin/Debug/**
 MailMessaging.v12.suo
-MailMessaging.Common.UnitTest/bin/**/
-MailMessaging.Net.IntegrationTest/bin/**/
-MailMessaging.Pcl.IntegrationTest/bin/**/
