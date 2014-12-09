@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{63C3D78A-2708-4420-9AF0-6BC917523113}</ProjectGuid>
+    <ProjectGuid>{F3CC3F00-5870-4370-9F34-4C3AF27AD27B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MailMessaging.Plain.Net</RootNamespace>
-    <AssemblyName>MailMessaging.Plain.Net</AssemblyName>
+    <RootNamespace>MailMessaging.Plain.IntegrationTest</RootNamespace>
+    <AssemblyName>MailMessaging.Plain.Net.IntegrationTest</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -17,7 +17,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NET</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -30,6 +30,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentAssertions, Version=3.2.1.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FluentAssertions.3.2.1\lib\net45\FluentAssertions.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentAssertions.Core">
+      <HintPath>..\packages\FluentAssertions.3.2.1\lib\net45\FluentAssertions.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,13 +50,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\MailMessaging.Plain.WinRT.IntegrationTest\TestSessionSetUp.cs">
+      <Link>TestSessionSetUp.cs</Link>
+    </Compile>
+    <Compile Include="..\MailMessaging.Plain.WinRT.IntegrationTest\_MailMessenger\Connect.cs">
+      <Link>_MailMessenger\Connect.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TcpClient.cs" />
+    <Compile Include="TcpListener.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MailMessaging.Plain.Core\MailMessaging.Plain.Core.csproj">
-      <Project>{9db4b409-832d-4a2c-b462-49c1091a6eb0}</Project>
+      <Project>{9DB4B409-832D-4A2C-B462-49C1091A6EB0}</Project>
       <Name>MailMessaging.Plain.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MailMessaging.Plain.IntegrationTest\MailMessaging.Plain.IntegrationTest.csproj">
+      <Project>{30809581-3990-42C9-A428-C1DFC364B472}</Project>
+      <Name>MailMessaging.Plain.IntegrationTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MailMessaging.Plain.Net\MailMessaging.Plain.Net.csproj">
+      <Project>{63C3D78A-2708-4420-9AF0-6BC917523113}</Project>
+      <Name>MailMessaging.Plain.Net</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

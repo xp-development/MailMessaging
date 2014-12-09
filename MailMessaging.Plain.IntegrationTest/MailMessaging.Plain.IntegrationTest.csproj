@@ -5,15 +5,15 @@
     <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C5EE4AA2-7367-4C09-AB85-02BF05086DD2}</ProjectGuid>
+    <ProjectGuid>{30809581-3990-42C9-A428-C1DFC364B472}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MailMessaging.Plain.Win8.UnitTest</RootNamespace>
-    <AssemblyName>MailMessaging.Plain.Win8.UnitTest</AssemblyName>
+    <RootNamespace>MailMessaging.Plain.IntegrationTest</RootNamespace>
+    <AssemblyName>MailMessaging.Plain.IntegrationTest</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TargetFrameworkProfile>Profile32</TargetFrameworkProfile>
+    <TargetFrameworkProfile>Profile151</TargetFrameworkProfile>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -35,16 +35,15 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
-    <ProjectReference Include="..\MailMessaging.Plain.Win8\MailMessaging.Plain.Win8.csproj">
-      <Project>{5cc28467-1f02-495c-a131-aed7d7a80915}</Project>
-      <Name>MailMessaging.Plain.Win8</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <TargetPlatform Include="WindowsPhoneApp, Version=8.1" />
-    <TargetPlatform Include="Windows, Version=8.1" />
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="ConnectionReceivedEventHandler.cs" />
+    <Compile Include="ConnectionReceivedEventHandlerArgs.cs" />
+    <Compile Include="FakeImapServer.cs" />
+    <Compile Include="ImapServerConfiguration.cs" />
+    <Compile Include="IStreamReader.cs" />
+    <Compile Include="IStreamWriter.cs" />
+    <Compile Include="ITcpListener.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

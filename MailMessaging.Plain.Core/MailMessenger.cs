@@ -6,13 +6,13 @@ namespace MailMessaging.Plain.Core
 {
     public class MailMessenger : IMailMessenger
     {
+        public bool IsConnected { get; private set; }
+
         public MailMessenger(IAccount account, ITcpClient tcpClient)
         {
             _account = account;
             _tcpClient = tcpClient;
         }
-
-        public bool IsConnected { get; private set; }
 
         public async Task<ConnectResult> Connect()
         {
@@ -23,7 +23,7 @@ namespace MailMessaging.Plain.Core
                 IsConnected = (await ReadData()).StartsWith("* OK");
                 return IsConnected ? ConnectResult.Connected : ConnectResult.UnknownHost;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return ConnectResult.UnknownHost;
             }
@@ -37,6 +37,9 @@ namespace MailMessaging.Plain.Core
 
             while (!string.IsNullOrEmpty(response))
             {
+                if (response.EndsWith("\r\n"))
+                    break;
+
                 response = await _tcpClient.ReadAsync();
                 builder.Append(response);
             }
