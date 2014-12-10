@@ -1,7 +1,7 @@
 Welcome to MailMessaging
 ========================
 
-MailMessaging is a framework for Windows 8.1, Windows Phone 8.1  and .NET 4.5.1 to receive mails via imap and send mails via smtp.
+MailMessaging is a framework for Windows 8.1, Windows Phone 8.1  and .NET 4.5.1 to receive mails via imap.
 
 <h2>Credits</h2>
 
