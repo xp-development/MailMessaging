@@ -1,11 +1,9 @@
-﻿namespace MailMessaging.Plain.Core
+﻿namespace MailMessaging.Plain.Contracts
 {
     public interface IAccount
     {
         string Server { get; }
         int Port { get; }
-        string UserName { get; }
-        string Password { get; }
         bool UseSsl { get; }
     }
 }

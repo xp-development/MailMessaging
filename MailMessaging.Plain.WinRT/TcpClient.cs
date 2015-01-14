@@ -5,6 +5,7 @@ using Windows.Networking;
 using Windows.Networking.Sockets;
 using Windows.Storage.Streams;
 using MailMessaging.Plain.Core;
+using MailMessaging.Plain.Contracts;
 
 namespace MailMessaging.Plain.WinRT
 {

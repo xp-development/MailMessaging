@@ -1,4 +1,4 @@
-﻿namespace MailMessaging.Plain.Core
+﻿namespace MailMessaging.Plain.Contracts
 {
     public enum ConnectResult
     {

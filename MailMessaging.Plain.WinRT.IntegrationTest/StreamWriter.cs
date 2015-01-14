@@ -1,3 +1,5 @@
+using System;
+using System.Threading.Tasks;
 using Windows.Storage.Streams;
 
 namespace MailMessaging.Plain.IntegrationTest
@@ -9,14 +11,10 @@ namespace MailMessaging.Plain.IntegrationTest
             _dataWriter = new DataWriter(outputStream);
         }
 
-        public void WriteString(string message)
+        public async Task WriteStringAsync(string message)
         {
             _dataWriter.WriteString(message);
-        }
-
-        public void StoreAsync()
-        {
-            _dataWriter.StoreAsync();
+            await _dataWriter.StoreAsync();
         }
 
         private readonly DataWriter _dataWriter;

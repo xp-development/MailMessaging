@@ -1,8 +1,9 @@
+using System.Threading.Tasks;
+
 namespace MailMessaging.Plain.IntegrationTest
 {
     public interface IStreamWriter
     {
-        void WriteString(string message);
-        void StoreAsync();
+        Task WriteStringAsync(string message);
     }
 }

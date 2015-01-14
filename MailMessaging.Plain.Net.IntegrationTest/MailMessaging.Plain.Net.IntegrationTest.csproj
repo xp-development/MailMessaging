@@ -63,6 +63,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MailMessaging.Plain.Contracts\MailMessaging.Plain.Contracts.csproj">
+      <Project>{d016639b-3a2e-4a53-8eec-11a3433a98b3}</Project>
+      <Name>MailMessaging.Plain.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MailMessaging.Plain.Core\MailMessaging.Plain.Core.csproj">
       <Project>{9DB4B409-832D-4A2C-B462-49C1091A6EB0}</Project>
       <Name>MailMessaging.Plain.Core</Name>

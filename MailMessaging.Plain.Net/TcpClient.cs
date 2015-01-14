@@ -3,6 +3,7 @@ using System.Net.Security;
 using System.Text;
 using System.Threading.Tasks;
 using MailMessaging.Plain.Core;
+using MailMessaging.Plain.Contracts;
 
 namespace MailMessaging.Plain.Net
 {

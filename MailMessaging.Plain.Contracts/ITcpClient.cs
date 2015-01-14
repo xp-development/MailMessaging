@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace MailMessaging.Plain.Core
+namespace MailMessaging.Plain.Contracts
 {
     public interface ITcpClient
     {

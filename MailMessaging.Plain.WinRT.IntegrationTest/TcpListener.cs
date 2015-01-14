@@ -1,3 +1,4 @@
+using System.IO;
 using Windows.Networking;
 using Windows.Networking.Sockets;
 
@@ -16,7 +17,7 @@ namespace MailMessaging.Plain.IntegrationTest
 
         private void OnListenerOnConnectionReceived(StreamSocketListener sender, StreamSocketListenerConnectionReceivedEventArgs args)
         {
-            InvokeConnectionReceived(new ConnectionReceivedEventHandlerArgs(new StreamReader(args.Socket.InputStream), new StreamWriter(args.Socket.OutputStream)));
+            InvokeConnectionReceived(new ConnectionReceivedEventHandlerArgs(new StreamReader(args.Socket.InputStream.AsStreamForRead()), new StreamWriter(args.Socket.OutputStream)));
         }
 
         public void Stop()
@@ -28,12 +29,12 @@ namespace MailMessaging.Plain.IntegrationTest
             _listener = null;
         }
 
-        private StreamSocketListener _listener;
-
         private void InvokeConnectionReceived(ConnectionReceivedEventHandlerArgs args)
         {
             if (ConnectionReceived != null)
                 ConnectionReceived(this, args);
         }
+
+        private StreamSocketListener _listener;
     }
 }

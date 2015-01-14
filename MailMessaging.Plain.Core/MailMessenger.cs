@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Text;
 using System.Threading.Tasks;
+using MailMessaging.Plain.Core.Commands;
+using MailMessaging.Plain.Contracts;
+using MailMessaging.Plain.Contracts.Commands;
 
 namespace MailMessaging.Plain.Core
 {
@@ -27,6 +30,14 @@ namespace MailMessaging.Plain.Core
             {
                 return ConnectResult.UnknownHost;
             }
+        }
+
+        public async Task<TResponse> Send<TRequest, TResponse>(ICommand<TRequest, TResponse> message)
+            where TRequest : IRequest
+            where TResponse : IResponse
+        {
+            await _tcpClient.WriteStringAsync(message.Request);
+            return message.ParseResponse(await ReadData());
         }
 
         private async Task<string> ReadData()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using FluentAssertions;
+using MailMessaging.Plain.Contracts;
 using Moq;
 using NUnit.Framework;
 
@@ -17,7 +18,7 @@ namespace MailMessaging.Plain.Core.UnitTest._MailMessenger
             readAsyncMessages.Enqueue("* OK IMAP server ready");
             readAsyncMessages.Enqueue(string.Empty);
 
-            var account = new Account("valid.server", 42, "validUserName", "validPassword", true);
+            var account = new Account("valid.server", 42, true);
             var tcpClientMock = new Mock<ITcpClient>();
             tcpClientMock.Setup(item => item.Connect(It.IsAny<string>(), It.IsAny<int>(), It.IsAny<bool>())).Returns(Task.Run(() => {}));
             tcpClientMock.Setup(item => item.ReadAsync()).Returns(() => Task.FromResult(readAsyncMessages.Dequeue()));
@@ -29,7 +30,7 @@ namespace MailMessaging.Plain.Core.UnitTest._MailMessenger
         [Test]
         public void ShouldNotConnectIfHostNameIsWrong()
         {
-            var account = new Account("invalid.server", 42, "validUserName", "validPassword", true);
+            var account = new Account("invalid.server", 42, true);
             var tcpClientMock = new Mock<ITcpClient>();
             tcpClientMock.Setup(item => item.Connect(It.IsAny<string>(), It.IsAny<int>(), It.IsAny<bool>())).Throws<Exception>();
 
@@ -40,7 +41,7 @@ namespace MailMessaging.Plain.Core.UnitTest._MailMessenger
         [Test]
         public void ShouldNotConnectIfSslIsRequiredButNotUsed()
         {
-            var account = new Account("valid.server", 42, "validUserName", "validPassword", false);
+            var account = new Account("valid.server", 42, false);
             var tcpClientMock = new Mock<ITcpClient>();
             tcpClientMock.Setup(item => item.Connect(It.IsAny<string>(), It.IsAny<int>(), It.IsAny<bool>())).Returns(Task.Run(() => { }));
             tcpClientMock.Setup(item => item.ReadAsync()).ReturnsAsync(string.Empty);
