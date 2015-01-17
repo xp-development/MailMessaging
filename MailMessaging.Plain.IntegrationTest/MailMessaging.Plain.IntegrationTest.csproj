@@ -51,6 +51,8 @@
     <Compile Include="ITcpListener.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FakeAccount.cs" />
+    <Compile Include="StreamReader.cs" />
+    <Compile Include="StreamWriter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MailMessaging.Plain.Contracts\MailMessaging.Plain.Contracts.csproj">

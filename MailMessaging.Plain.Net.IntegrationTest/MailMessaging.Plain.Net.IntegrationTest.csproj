@@ -56,6 +56,15 @@
     <Compile Include="..\MailMessaging.Plain.WinRT.IntegrationTest\_MailMessenger\Connect.cs">
       <Link>_MailMessenger\Connect.cs</Link>
     </Compile>
+    <Compile Include="..\MailMessaging.Plain.WinRT.IntegrationTest\_MailMessenger\Login.cs">
+      <Link>_MailMessenger\Login.cs</Link>
+    </Compile>
+    <Compile Include="..\MailMessaging.Plain.WinRT.IntegrationTest\_MailMessenger\TestBase.cs">
+      <Link>_MailMessenger\TestBase.cs</Link>
+    </Compile>
+    <Compile Include="..\MailMessaging.Plain.WinRT.IntegrationTest\_MailMessenger\UnknownCommand.cs">
+      <Link>_MailMessenger\UnknownCommand.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TcpListener.cs" />
   </ItemGroup>

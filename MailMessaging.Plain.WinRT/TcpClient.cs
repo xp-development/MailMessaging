@@ -11,7 +11,7 @@ namespace MailMessaging.Plain.WinRT
 {
     public class TcpClient : ITcpClient
     {
-        public TcpClient()
+        public async Task Connect(string hostName, int port, bool useTls)
         {
             _socket = new StreamSocket();
 
@@ -20,10 +20,7 @@ namespace MailMessaging.Plain.WinRT
             {
                 InputStreamOptions = InputStreamOptions.Partial
             };
-        }
 
-        public async Task Connect(string hostName, int port, bool useTls)
-        {
             await _socket.ConnectAsync(new HostName(hostName), port.ToString(), useTls ? SocketProtectionLevel.Tls12 : SocketProtectionLevel.PlainSocket);
         }
 
@@ -54,8 +51,8 @@ namespace MailMessaging.Plain.WinRT
             return builder.ToString();
         }
 
-        private readonly StreamSocket _socket;
-        private readonly DataWriter _dataWriter;
-        private readonly DataReader _dataReader;
+        private StreamSocket _socket;
+        private DataWriter _dataWriter;
+        private DataReader _dataReader;
     }
 }

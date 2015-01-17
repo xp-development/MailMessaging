@@ -6,8 +6,6 @@ namespace MailMessaging.Plain.IntegrationTest
 {
     public class StreamReader : IStreamReader
     {
-        private readonly Stream _inputStream;
-
         public StreamReader(Stream inputStream)
         {
             _inputStream = inputStream;
@@ -20,5 +18,7 @@ namespace MailMessaging.Plain.IntegrationTest
 
             return Encoding.UTF8.GetString(buffer, 0, buffer.Length);
         }
+
+        private readonly Stream _inputStream;
     }
 }

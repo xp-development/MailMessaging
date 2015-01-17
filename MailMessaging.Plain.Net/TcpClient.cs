@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MailMessaging.Plain.Core;
 using MailMessaging.Plain.Contracts;
+using System;
 
 namespace MailMessaging.Plain.Net
 {
@@ -14,10 +15,7 @@ namespace MailMessaging.Plain.Net
             _client = new System.Net.Sockets.TcpClient();
             await _client.ConnectAsync(hostName, port);
 
-            _stream = useTls ? (Stream)new SslStream(_client.GetStream()) : _client.GetStream();
-            var sslStream = _stream as SslStream;
-            if (sslStream != null)
-                sslStream.AuthenticateAsClient(hostName);
+            _stream = _client.GetStream();
 
             _streamWriter = new StreamWriter(_stream);
             _streamReader = new StreamReader(_stream);
@@ -25,7 +23,6 @@ namespace MailMessaging.Plain.Net
 
         public void Disconnect()
         {
-
             _client.Close();
         }
 

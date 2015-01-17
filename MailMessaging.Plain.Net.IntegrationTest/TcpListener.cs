@@ -1,4 +1,6 @@
 using System;
+using System.Net;
+using System.Net.Sockets;
 
 namespace MailMessaging.Plain.IntegrationTest
 {
@@ -8,12 +10,35 @@ namespace MailMessaging.Plain.IntegrationTest
 
         public void Start(string host, int port)
         {
-            throw new NotImplementedException();
+            _listener = new System.Net.Sockets.TcpListener(IPAddress.Parse(host), port);
+            _listener.Start();
+            _listener.BeginAcceptTcpClient(new AsyncCallback(OnAcceptTcpClient), _listener);
+        }
+
+        private void OnAcceptTcpClient(IAsyncResult asyncResult)
+        {
+            var listener = (System.Net.Sockets.TcpListener)asyncResult.AsyncState;
+
+            _listener.BeginAcceptTcpClient(new AsyncCallback(OnAcceptTcpClient), _listener);
+            var tcpClient = listener.EndAcceptTcpClient(asyncResult);
+
+            InvokeConnectionReceived(new ConnectionReceivedEventHandlerArgs(new StreamReader(tcpClient.GetStream()), new StreamWriter(tcpClient.GetStream())));
         }
 
         public void Stop()
         {
-            throw new NotImplementedException();
+            if (_listener == null)
+                return;
+
+            _listener.Stop();
         }
+
+        private void InvokeConnectionReceived(ConnectionReceivedEventHandlerArgs args)
+        {
+            if (ConnectionReceived != null)
+                ConnectionReceived(this, args);
+        }
+
+        private System.Net.Sockets.TcpListener _listener;
     }
 }

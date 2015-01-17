@@ -17,7 +17,7 @@ namespace MailMessaging.Plain.IntegrationTest
 
         private void OnListenerOnConnectionReceived(StreamSocketListener sender, StreamSocketListenerConnectionReceivedEventArgs args)
         {
-            InvokeConnectionReceived(new ConnectionReceivedEventHandlerArgs(new StreamReader(args.Socket.InputStream.AsStreamForRead()), new StreamWriter(args.Socket.OutputStream)));
+            InvokeConnectionReceived(new ConnectionReceivedEventHandlerArgs(new StreamReader(args.Socket.InputStream.AsStreamForRead()), new StreamWriter(args.Socket.OutputStream.AsStreamForWrite())));
         }
 
         public void Stop()
