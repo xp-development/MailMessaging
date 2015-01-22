@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using Windows.Networking;
 using Windows.Networking.Sockets;
 using Windows.Storage.Streams;
-using MailMessaging.Plain.Core;
 using MailMessaging.Plain.Contracts;
 
 namespace MailMessaging.Plain.WinRT
@@ -21,7 +20,9 @@ namespace MailMessaging.Plain.WinRT
                 InputStreamOptions = InputStreamOptions.Partial
             };
 
-            await _socket.ConnectAsync(new HostName(hostName), port.ToString(), useTls ? SocketProtectionLevel.Tls12 : SocketProtectionLevel.PlainSocket);
+            await
+                _socket.ConnectAsync(new HostName(hostName), port.ToString(),
+                    useTls ? SocketProtectionLevel.Tls12 : SocketProtectionLevel.PlainSocket);
         }
 
         public void Disconnect()
@@ -51,8 +52,8 @@ namespace MailMessaging.Plain.WinRT
             return builder.ToString();
         }
 
-        private StreamSocket _socket;
-        private DataWriter _dataWriter;
         private DataReader _dataReader;
+        private DataWriter _dataWriter;
+        private StreamSocket _socket;
     }
 }

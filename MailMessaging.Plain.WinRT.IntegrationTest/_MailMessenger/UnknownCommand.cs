@@ -2,13 +2,13 @@
 using MailMessaging.Plain.Contracts;
 using MailMessaging.Plain.Contracts.Commands;
 using MailMessaging.Plain.Core;
+using NUnit.Framework;
 using TestCommands = MailMessaging.Plain.IntegrationTest.Commands;
 #if WinRT
- using MailMessaging.Plain.WinRT;
+using MailMessaging.Plain.WinRT;
 #elif NET
  using MailMessaging.Plain.Net;
 #endif
-using NUnit.Framework;
 
 namespace MailMessaging.Plain.IntegrationTest._MailMessenger
 {

@@ -1,10 +1,10 @@
-﻿using FluentAssertions;
+﻿using System;
+using FluentAssertions;
 using MailMessaging.Plain.Contracts.Commands;
 using MailMessaging.Plain.Contracts.Services;
 using MailMessaging.Plain.Core.Commands;
 using Moq;
 using NUnit.Framework;
-using System;
 
 namespace MailMessaging.Plain.Core.UnitTest._Commands._LoginCommand
 {

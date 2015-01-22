@@ -1,10 +1,7 @@
-﻿using MailMessaging.Plain.Contracts.Commands;
-using MailMessaging.Plain.Core.Commands;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System;
 using System.Text.RegularExpressions;
+using MailMessaging.Plain.Contracts.Commands;
+using MailMessaging.Plain.Core.Commands;
 
 namespace MailMessaging.Plain.IntegrationTest.Commands
 {
@@ -25,7 +22,7 @@ namespace MailMessaging.Plain.IntegrationTest.Commands
 
             var response = new UnknownResponse
             {
-                Result = (ResponseResult)Enum.Parse(typeof(ResponseResult), matches[0].Groups[1].Value),
+                Result = (ResponseResult) Enum.Parse(typeof (ResponseResult), matches[0].Groups[1].Value),
                 Message = responseMessage
             };
 

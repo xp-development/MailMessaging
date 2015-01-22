@@ -1,5 +1,4 @@
 ﻿using MailMessaging.Plain.Contracts.Services;
-using MailMessaging.Plain.Core.Commands;
 using MailMessaging.Plain.Core.Services;
 using NUnit.Framework;
 

@@ -20,7 +20,8 @@ namespace MailMessaging.Plain.IntegrationTest
         public void Start()
         {
             if (_configuration == null)
-                throw new Exception("Imap server is not configured! Call SetConfiguration(ImapServerConfiguration configuration).");
+                throw new Exception(
+                    "Imap server is not configured! Call SetConfiguration(ImapServerConfiguration configuration).");
 
             _listener.ConnectionReceived += OnListenerOnConnectionReceived;
             _listener.Start(_configuration.IpAddress, _configuration.Port);
@@ -30,7 +31,7 @@ namespace MailMessaging.Plain.IntegrationTest
         {
             await args.StreamWriter.WriteStringAsync("* OK IMAP server ready\r\n");
 
-            while(true)
+            while (true)
             {
                 var receivedMessage = await args.StreamReader.ReadStringAsync();
 
@@ -56,9 +57,9 @@ namespace MailMessaging.Plain.IntegrationTest
             _listener.Stop();
         }
 
-        private CommandManager _commandManager;
         private ImapServerConfiguration _configuration;
-        private readonly ITcpListener _listener;
+        private readonly CommandManager _commandManager;
         private readonly FakeAccount _fakeAccount;
+        private readonly ITcpListener _listener;
     }
 }

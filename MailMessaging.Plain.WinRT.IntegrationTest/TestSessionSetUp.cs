@@ -20,14 +20,15 @@ namespace MailMessaging.Plain.IntegrationTest
         private static FakeAccount GetFakeAccount()
         {
             var xmlSerializer = new XmlSerializer(typeof (FakeAccount));
-         
+
 #if WinRT
- var assembly = typeof(FakeAccount).GetTypeInfo().Assembly;
+            var assembly = typeof (FakeAccount).GetTypeInfo().Assembly;
 #elif NET
  var assembly = typeof(FakeAccount).Assembly;
 #endif
 
-            var xmlStream = assembly.GetManifestResourceStream("MailMessaging.Plain.IntegrationTest.TestFiles.FakeAccount.xml");
+            var xmlStream =
+                assembly.GetManifestResourceStream("MailMessaging.Plain.IntegrationTest.TestFiles.FakeAccount.xml");
 
             var manifestResourceNames = assembly.GetManifestResourceNames();
             var fakeAccount = xmlSerializer.Deserialize(xmlStream);

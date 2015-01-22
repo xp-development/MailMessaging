@@ -15,9 +15,12 @@ namespace MailMessaging.Plain.IntegrationTest
             _listener.BindEndpointAsync(new HostName(host), port.ToString());
         }
 
-        private void OnListenerOnConnectionReceived(StreamSocketListener sender, StreamSocketListenerConnectionReceivedEventArgs args)
+        private void OnListenerOnConnectionReceived(StreamSocketListener sender,
+            StreamSocketListenerConnectionReceivedEventArgs args)
         {
-            InvokeConnectionReceived(new ConnectionReceivedEventHandlerArgs(new StreamReader(args.Socket.InputStream.AsStreamForRead()), new StreamWriter(args.Socket.OutputStream.AsStreamForWrite())));
+            InvokeConnectionReceived(
+                new ConnectionReceivedEventHandlerArgs(new StreamReader(args.Socket.InputStream.AsStreamForRead()),
+                    new StreamWriter(args.Socket.OutputStream.AsStreamForWrite())));
         }
 
         public void Stop()

@@ -1,10 +1,7 @@
 using System.IO;
-using System.Net.Security;
 using System.Text;
 using System.Threading.Tasks;
-using MailMessaging.Plain.Core;
 using MailMessaging.Plain.Contracts;
-using System;
 
 namespace MailMessaging.Plain.Net
 {
@@ -43,9 +40,9 @@ namespace MailMessaging.Plain.Net
             return builder.ToString();
         }
 
-        private Stream _stream;
         private System.Net.Sockets.TcpClient _client;
-        private StreamWriter _streamWriter;
+        private Stream _stream;
         private StreamReader _streamReader;
+        private StreamWriter _streamWriter;
     }
 }

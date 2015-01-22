@@ -1,9 +1,8 @@
-﻿using MailMessaging.Plain.Core.Commands;
-using NUnit.Framework;
-using FluentAssertions;
+﻿using FluentAssertions;
 using MailMessaging.Plain.Contracts.Services;
-using MailMessaging.Plain.Core.Services;
+using MailMessaging.Plain.Core.Commands;
 using Moq;
+using NUnit.Framework;
 
 namespace MailMessaging.Plain.Core.UnitTest._Commands._LoginCommand
 {

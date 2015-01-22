@@ -1,6 +1,5 @@
 ﻿using MailMessaging.Plain.Contracts.Services;
 using MailMessaging.Plain.Core.Commands;
-using MailMessaging.Plain.Core.Services;
 
 namespace MailMessaging.Plain.IntegrationTest.Commands
 {
@@ -13,7 +12,8 @@ namespace MailMessaging.Plain.IntegrationTest.Commands
 
         public UnknownCommand(ITagService tagService)
             : base(tagService)
-        {}
+        {
+        }
 
         public override UnknownResponse ParseResponse(string responseMessage)
         {

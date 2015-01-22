@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Text;
 using System.Threading.Tasks;
-using MailMessaging.Plain.Core.Commands;
 using MailMessaging.Plain.Contracts;
 using MailMessaging.Plain.Contracts.Commands;
 
