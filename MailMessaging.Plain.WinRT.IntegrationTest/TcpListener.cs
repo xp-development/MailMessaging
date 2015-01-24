@@ -1,6 +1,7 @@
 using System.IO;
 using Windows.Networking;
 using Windows.Networking.Sockets;
+using MailMessaging.Plain.IntegrationTest.Contracts;
 
 namespace MailMessaging.Plain.IntegrationTest
 {

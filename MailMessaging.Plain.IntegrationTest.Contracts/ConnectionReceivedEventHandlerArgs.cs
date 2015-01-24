@@ -1,6 +1,6 @@
 using System;
 
-namespace MailMessaging.Plain.IntegrationTest
+namespace MailMessaging.Plain.IntegrationTest.Contracts
 {
     public class ConnectionReceivedEventHandlerArgs : EventArgs
     {

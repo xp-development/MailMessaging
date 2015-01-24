@@ -1,4 +1,6 @@
-﻿namespace MailMessaging.Plain.IntegrationTest
+﻿using MailMessaging.Plain.IntegrationTest.Contracts;
+
+namespace MailMessaging.Plain.IntegrationTest
 {
     public class FakeAccount : IFakeAccount
     {

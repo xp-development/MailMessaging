@@ -20,8 +20,7 @@ namespace MailMessaging.Plain.Core.UnitTest._MailMessenger
 
             var account = new Account("valid.server", 42, true);
             var tcpClientMock = new Mock<ITcpClient>();
-            tcpClientMock.Setup(item => item.Connect(It.IsAny<string>(), It.IsAny<int>(), It.IsAny<bool>()))
-                .Returns(Task.Run(() => { }));
+            tcpClientMock.Setup(item => item.Connect(It.IsAny<string>(), It.IsAny<int>(), It.IsAny<bool>())).Returns(Task.Run(() => { }));
             tcpClientMock.Setup(item => item.ReadAsync()).Returns(() => Task.FromResult(readAsyncMessages.Dequeue()));
 
             var messenger = new MailMessenger(account, tcpClientMock.Object);

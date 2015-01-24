@@ -19,11 +19,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailMessaging.Plain.WinRT.I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailMessaging.Plain.WinRT.UnitTest", "MailMessaging.Plain.WinRT.UnitTest\MailMessaging.Plain.WinRT.UnitTest.csproj", "{C5EE4AA2-7367-4C09-AB85-02BF05086DD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailMessaging.Plain.IntegrationTest", "MailMessaging.Plain.IntegrationTest\MailMessaging.Plain.IntegrationTest.csproj", "{30809581-3990-42C9-A428-C1DFC364B472}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailMessaging.Plain.Contracts", "MailMessaging.Plain.Contracts\MailMessaging.Plain.Contracts.csproj", "{D016639B-3A2E-4A53-8EEC-11A3433A98B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailMessaging.Plain.IntegrationTest.Contracts", "MailMessaging.Plain.IntegrationTest.Contracts\MailMessaging.Plain.IntegrationTest.Contracts.csproj", "{9CDC3BFD-3451-4029-A39E-686766B04F2D}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "MailMessaging.Plain.Net.IntegrationTest.Shared", "MailMessaging.Plain.Net.IntegrationTest.Shared\MailMessaging.Plain.Net.IntegrationTest.Shared.shproj", "{7AC9F63A-66F1-4BE6-A6A2-57D18C99F57A}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		MailMessaging.Plain.Net.IntegrationTest.Shared\MailMessaging.Plain.Net.IntegrationTest.Shared.projitems*{f3cc3f00-5870-4370-9f34-4c3af27ad27b}*SharedItemsImports = 4
+		MailMessaging.Plain.Net.IntegrationTest.Shared\MailMessaging.Plain.Net.IntegrationTest.Shared.projitems*{eb4501f4-394e-40c2-bf5b-2e29d6bcf9cb}*SharedItemsImports = 4
+		MailMessaging.Plain.Net.IntegrationTest.Shared\MailMessaging.Plain.Net.IntegrationTest.Shared.projitems*{7ac9f63a-66f1-4be6-a6a2-57d18c99f57a}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -61,14 +68,14 @@ Global
 		{C5EE4AA2-7367-4C09-AB85-02BF05086DD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5EE4AA2-7367-4C09-AB85-02BF05086DD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5EE4AA2-7367-4C09-AB85-02BF05086DD2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{30809581-3990-42C9-A428-C1DFC364B472}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{30809581-3990-42C9-A428-C1DFC364B472}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{30809581-3990-42C9-A428-C1DFC364B472}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{30809581-3990-42C9-A428-C1DFC364B472}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D016639B-3A2E-4A53-8EEC-11A3433A98B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D016639B-3A2E-4A53-8EEC-11A3433A98B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D016639B-3A2E-4A53-8EEC-11A3433A98B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D016639B-3A2E-4A53-8EEC-11A3433A98B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CDC3BFD-3451-4029-A39E-686766B04F2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CDC3BFD-3451-4029-A39E-686766B04F2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CDC3BFD-3451-4029-A39E-686766B04F2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CDC3BFD-3451-4029-A39E-686766B04F2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

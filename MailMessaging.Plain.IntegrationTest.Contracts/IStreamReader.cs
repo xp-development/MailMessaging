@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace MailMessaging.Plain.IntegrationTest
+namespace MailMessaging.Plain.IntegrationTest.Contracts
 {
     public interface IStreamReader
     {

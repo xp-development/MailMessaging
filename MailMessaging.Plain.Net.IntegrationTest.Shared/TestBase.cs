@@ -1,15 +1,19 @@
 ﻿using System.Reflection;
 using System.Xml.Serialization;
+using MailMessaging.Plain.Contracts.Services;
+using MailMessaging.Plain.Core.Services;
 using NUnit.Framework;
 
 namespace MailMessaging.Plain.IntegrationTest
 {
-    [SetUpFixture]
-    public class TestSessionSetUp
+    public class TestBase
     {
         [SetUp]
         public void SetUp()
         {
+
+            _tagService = new TagService();
+
             var fakeAccount = GetFakeAccount();
             _server = new FakeImapServer(new TcpListener(), fakeAccount);
             _server.SetConfiguration(new ImapServerConfiguration("127.0.0.1", 51234, false));
@@ -22,18 +26,14 @@ namespace MailMessaging.Plain.IntegrationTest
             var xmlSerializer = new XmlSerializer(typeof (FakeAccount));
 
 #if WinRT
-            var assembly = typeof (FakeAccount).GetTypeInfo().Assembly;
+            var assembly = typeof (TcpListener).GetTypeInfo().Assembly;
 #elif NET
- var assembly = typeof(FakeAccount).Assembly;
+            var assembly = typeof(TcpListener).Assembly;
 #endif
 
-            var xmlStream =
-                assembly.GetManifestResourceStream("MailMessaging.Plain.IntegrationTest.TestFiles.FakeAccount.xml");
+            var xmlStream = assembly.GetManifestResourceStream("MailMessaging.Plain.IntegrationTest.FakeAccount.xml");
 
-            var manifestResourceNames = assembly.GetManifestResourceNames();
-            var fakeAccount = xmlSerializer.Deserialize(xmlStream);
-
-            return (FakeAccount) fakeAccount;
+            return (FakeAccount) xmlSerializer.Deserialize(xmlStream);
         }
 
         [TearDown]
@@ -43,5 +43,6 @@ namespace MailMessaging.Plain.IntegrationTest
         }
 
         private FakeImapServer _server;
+        protected ITagService _tagService;
     }
 }

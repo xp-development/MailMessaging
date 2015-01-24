@@ -50,21 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\MailMessaging.Plain.WinRT.IntegrationTest\TestSessionSetUp.cs">
-      <Link>TestSessionSetUp.cs</Link>
-    </Compile>
-    <Compile Include="..\MailMessaging.Plain.WinRT.IntegrationTest\_MailMessenger\Connect.cs">
-      <Link>_MailMessenger\Connect.cs</Link>
-    </Compile>
-    <Compile Include="..\MailMessaging.Plain.WinRT.IntegrationTest\_MailMessenger\Login.cs">
-      <Link>_MailMessenger\Login.cs</Link>
-    </Compile>
-    <Compile Include="..\MailMessaging.Plain.WinRT.IntegrationTest\_MailMessenger\TestBase.cs">
-      <Link>_MailMessenger\TestBase.cs</Link>
-    </Compile>
-    <Compile Include="..\MailMessaging.Plain.WinRT.IntegrationTest\_MailMessenger\UnknownCommand.cs">
-      <Link>_MailMessenger\UnknownCommand.cs</Link>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TcpListener.cs" />
   </ItemGroup>
@@ -80,15 +65,16 @@
       <Project>{9DB4B409-832D-4A2C-B462-49C1091A6EB0}</Project>
       <Name>MailMessaging.Plain.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MailMessaging.Plain.IntegrationTest\MailMessaging.Plain.IntegrationTest.csproj">
-      <Project>{30809581-3990-42C9-A428-C1DFC364B472}</Project>
-      <Name>MailMessaging.Plain.IntegrationTest</Name>
+    <ProjectReference Include="..\MailMessaging.Plain.IntegrationTest.Contracts\MailMessaging.Plain.IntegrationTest.Contracts.csproj">
+      <Project>{9CDC3BFD-3451-4029-A39E-686766B04F2D}</Project>
+      <Name>MailMessaging.Plain.IntegrationTest.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\MailMessaging.Plain.Net\MailMessaging.Plain.Net.csproj">
       <Project>{63C3D78A-2708-4420-9AF0-6BC917523113}</Project>
       <Name>MailMessaging.Plain.Net</Name>
     </ProjectReference>
   </ItemGroup>
+  <Import Project="..\MailMessaging.Plain.Net.IntegrationTest.Shared\MailMessaging.Plain.Net.IntegrationTest.Shared.projitems" Label="Shared" Condition="Exists('..\MailMessaging.Plain.Net.IntegrationTest.Shared\MailMessaging.Plain.Net.IntegrationTest.Shared.projitems')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

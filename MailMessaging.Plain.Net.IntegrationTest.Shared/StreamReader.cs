@@ -1,6 +1,7 @@
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using MailMessaging.Plain.IntegrationTest.Contracts;
 
 namespace MailMessaging.Plain.IntegrationTest
 {

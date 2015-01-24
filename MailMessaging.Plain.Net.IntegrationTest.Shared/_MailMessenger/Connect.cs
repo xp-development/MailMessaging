@@ -12,7 +12,7 @@ using MailMessaging.Plain.WinRT;
 namespace MailMessaging.Plain.IntegrationTest._MailMessenger
 {
     [TestFixture]
-    public class Connect
+    public class Connect : TestBase
     {
         [Test]
         public void ShouldConnectServer()
