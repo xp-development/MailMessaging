@@ -1,8 +1,7 @@
-﻿using MailMessaging.Plain.Contracts.Commands;
-using MailMessaging.Plain.Contracts.Services;
-using MailMessaging.Plain.Core.Services;
-using System;
+﻿using System;
 using System.Text.RegularExpressions;
+using MailMessaging.Plain.Contracts.Commands;
+using MailMessaging.Plain.Contracts.Services;
 
 namespace MailMessaging.Plain.Core.Commands
 {

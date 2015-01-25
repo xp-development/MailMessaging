@@ -17,7 +17,7 @@ namespace MailMessaging.Plain.Core.Services
             return string.Format("A{0}", (++_counter).ToString("0000"));
         }
 
-        private int _maxCount;
+        private readonly int _maxCount;
         private int _counter;
     }
 }

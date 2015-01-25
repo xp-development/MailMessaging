@@ -4,9 +4,8 @@ using MailMessaging.Plain.Core;
 using NUnit.Framework;
 #if WinRT
 using MailMessaging.Plain.WinRT;
-
 #elif NET
- using MailMessaging.Plain.Net;
+using MailMessaging.Plain.Net;
 #endif
 
 namespace MailMessaging.Plain.IntegrationTest._MailMessenger

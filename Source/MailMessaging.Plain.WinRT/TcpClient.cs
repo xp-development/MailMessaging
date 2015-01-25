@@ -20,9 +20,7 @@ namespace MailMessaging.Plain.WinRT
                 InputStreamOptions = InputStreamOptions.Partial
             };
 
-            await
-                _socket.ConnectAsync(new HostName(hostName), port.ToString(),
-                    useTls ? SocketProtectionLevel.Tls12 : SocketProtectionLevel.PlainSocket);
+            await _socket.ConnectAsync(new HostName(hostName), port.ToString(), useTls ? SocketProtectionLevel.Tls12 : SocketProtectionLevel.PlainSocket);
         }
 
         public void Disconnect()

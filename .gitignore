@@ -1,5 +1,5 @@
 **/obj/Debug/**
 **/bin/Debug/**
-MailMessaging.v12.suo
-packages/**
-MailMessaging.sln.DotSettings.user
+Source/MailMessaging.v12.suo
+Source/packages/**
+Source/MailMessaging.sln.DotSettings.user

@@ -21,8 +21,7 @@ namespace MailMessaging.Plain.IntegrationTest
         public void Start()
         {
             if (_configuration == null)
-                throw new Exception(
-                    "Imap server is not configured! Call SetConfiguration(ImapServerConfiguration configuration).");
+                throw new Exception("Imap server is not configured! Call SetConfiguration(ImapServerConfiguration configuration).");
 
             _listener.ConnectionReceived += OnListenerOnConnectionReceived;
             _listener.Start(_configuration.IpAddress, _configuration.Port);
