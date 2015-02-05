@@ -74,7 +74,7 @@
       <Name>MailMessaging.Plain.Net</Name>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="..\MailMessaging.Plain.Net.IntegrationTest.Shared\MailMessaging.Plain.Net.IntegrationTest.Shared.projitems" Label="Shared" Condition="Exists('..\MailMessaging.Plain.Net.IntegrationTest.Shared\MailMessaging.Plain.Net.IntegrationTest.Shared.projitems')" />
+  <Import Project="..\MailMessaging.Plain.IntegrationTest.Shared\MailMessaging.Plain.IntegrationTest.Shared.projitems" Label="Shared" Condition="Exists('..\MailMessaging.Plain.IntegrationTest.Shared\MailMessaging.Plain.IntegrationTest.Shared.projitems')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
