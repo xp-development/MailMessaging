@@ -9,7 +9,7 @@ namespace MailMessaging.Plain.Core.Commands
     {
         public override string Request
         {
-            get { return PrepareMessage(string.Format("LOGIN {0} {1}", _userName, _password)); }
+            get { return PrepareCommand(string.Format("LOGIN {0} {1}", _userName, _password)); }
         }
 
         public LoginCommand(ITagService tagService, string userName, string password)
@@ -35,16 +35,14 @@ namespace MailMessaging.Plain.Core.Commands
 
             public static LoginResponse Create(string expectedTag, string responseMessage)
             {
-                var regex = new Regex(@"^" + expectedTag + "\\s(OK|NO|BAD)\\s(.*)$");
-
-                var matches = regex.Matches(responseMessage);
+                var matches = Regex.Matches(responseMessage, @"^" + expectedTag + "\\s(OK|NO|BAD)\\s(.*)$");
 
                 if (matches.Count == 0)
                     throw new InvalidOperationException();
 
                 var response = new LoginResponse
                 {
-                    Result = (ResponseResult)Enum.Parse(typeof(ResponseResult), matches[0].Groups[1].Value),
+                    Result = (ResponseResult) Enum.Parse(typeof (ResponseResult), matches[0].Groups[1].Value),
                     Message = responseMessage
                 };
 

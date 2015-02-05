@@ -1,6 +1,5 @@
 ﻿using MailMessaging.Plain.Contracts.Commands;
 using MailMessaging.Plain.Contracts.Services;
-using MailMessaging.Plain.Core.Services;
 using System;
 
 namespace MailMessaging.Plain.Core.Commands
@@ -21,7 +20,7 @@ namespace MailMessaging.Plain.Core.Commands
 
         public abstract TResponse ParseResponse(string responseMessage);
 
-        protected string PrepareMessage(string message)
+        protected string PrepareCommand(string message)
         {
             if (_wasExecuted)
                 throw new InvalidOperationException("Use a command only once!");

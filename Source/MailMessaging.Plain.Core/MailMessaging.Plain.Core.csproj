@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="Commands\ListCommand.cs" />
     <Compile Include="MailMessenger.cs" />
     <Compile Include="Commands\LoginCommand.cs" />
     <Compile Include="Commands\CommandBase.cs" />

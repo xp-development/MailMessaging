@@ -7,7 +7,7 @@ namespace MailMessaging.Plain.IntegrationTest.Commands
     {
         public override string Request
         {
-            get { return PrepareMessage("UnknownCommand"); }
+            get { return PrepareCommand("UnknownCommand"); }
         }
 
         public UnknownCommand(ITagService tagService)

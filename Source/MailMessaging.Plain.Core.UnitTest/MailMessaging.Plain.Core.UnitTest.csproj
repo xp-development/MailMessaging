@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_Commands\_ListCommand\ParseResponse.cs" />
+    <Compile Include="_Commands\_ListCommand\Request.cs" />
     <Compile Include="_Commands\_LoginCommand\ParseResponse.cs" />
     <Compile Include="_Commands\_LoginCommand\Request.cs" />
     <Compile Include="_MailMessenger\Connect.cs" />
