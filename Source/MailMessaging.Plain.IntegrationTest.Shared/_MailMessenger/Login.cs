@@ -30,8 +30,10 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
             response.Message.Should().Be("A0001 OK LOGIN completed\r\n");
         }
 
-        [Test]
-        public void ShouldConnectServerIfLoginDataAreInvalid()
+        [TestCase("invalidUserName", "invalidPassword")]
+        [TestCase("validUserName", "invalidPassword")]
+        [TestCase("invalidUserName", "validPassword")]
+        public void ShouldReceiveNoResponseIfLoginDataAreInvalid(string userName, string invalidpassword)
         {
             var account = new Account("127.0.0.1", 51234, false);
 
@@ -39,7 +41,7 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
             var messenger = new MailMessenger(account, tcpClient);
             messenger.Connect().Result.Should().Be(ConnectResult.Connected);
 
-            var response = messenger.Send(new LoginCommand(_tagService, "invalidUserName", "invalidPassword")).Result;
+            var response = messenger.Send(new LoginCommand(_tagService, userName, invalidpassword)).Result;
 
             response.Result.Should().Be(ResponseResult.NO);
             response.Message.Should().Be("A0001 NO authentication failed\r\n");
