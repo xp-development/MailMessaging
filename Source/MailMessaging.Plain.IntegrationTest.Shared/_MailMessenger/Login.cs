@@ -41,7 +41,7 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
             var messenger = new MailMessenger(account, tcpClient);
             messenger.Connect().Result.Should().Be(ConnectResult.Connected);
 
-            var response = messenger.Send(new LoginCommand(_tagService, userName, invalidpassword)).Result;
+            var response = messenger.Send(new LoginCommand(TagService, userName, invalidpassword)).Result;
 
             response.Result.Should().Be(ResponseResult.NO);
             response.Message.Should().Be("A0001 NO authentication failed\r\n");
