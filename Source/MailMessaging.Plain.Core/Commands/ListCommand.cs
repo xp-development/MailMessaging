@@ -53,7 +53,7 @@ namespace MailMessaging.Plain.Core.Commands
 
                 var listFolders = new List<ListFolder>();
 
-                for (var i = 1; i < lines.Length -1; ++i)
+                for (var i = 0; i < lines.Length -1; ++i)
                 {
                     var match = Regex.Match(lines[i], @"^\*\sLIST\s+\((.*?)\)\s+\""(.*?)\""\s+(.*?)$");
 

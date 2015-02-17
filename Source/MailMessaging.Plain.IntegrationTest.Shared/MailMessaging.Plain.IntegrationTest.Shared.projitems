@@ -15,10 +15,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)FakeAccount.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FakeImapServer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImapServerConfiguration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MailFolder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manual.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)StreamReader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)StreamWriter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)_MailMessenger\Connect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)_MailMessenger\List.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)_MailMessenger\Login.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)_MailMessenger\UnknownCommand.cs" />
   </ItemGroup>

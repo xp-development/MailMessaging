@@ -14,9 +14,7 @@ namespace MailMessaging.Plain.Core.UnitTest._Commands._ListCommand
         [Test]
         public void ShouldParseSuccessfulMessage()
         {
-            const string responseMessage = "A0001 LIST \"\" \"*\"\r\n" +
-                                           "\r\n" +
-                                           "* LIST (\\Drafts \\NoInferiors) \"/\" Drafts\r\n" +
+            const string responseMessage = "* LIST (\\Drafts \\NoInferiors) \"/\" Drafts\r\n" +
                                            "* LIST (\\Trash \\HasNoChildren) \"/\" Trash\r\n" +
                                            "* LIST (\\Sent \\NoInferiors) \"/\" Sent\r\n" +
                                            "* LIST (\\HasChildren) \"/\" INBOX\r\n" +
@@ -84,9 +82,7 @@ namespace MailMessaging.Plain.Core.UnitTest._Commands._ListCommand
         [Test]
         public void ShouldParseEmptyResponse()
         {
-            const string responseMessage = "A0001 LIST \"\" \"filter*\"\r\n" +
-                                           "\r\n" +
-                                           "A0001 OK LIST completed\r\n";
+            const string responseMessage = "A0001 OK LIST completed\r\n";
 
             var tagServiceMock = new Mock<ITagService>();
             tagServiceMock.Setup(item => item.GetNextTag()).Returns("A0001");
@@ -102,9 +98,7 @@ namespace MailMessaging.Plain.Core.UnitTest._Commands._ListCommand
         [Test]
         public void ShouldParseResponseWithoutFolderAttributes()
         {
-            const string responseMessage = "A0001 LIST \"\" \"filter*\"\r\n" +
-                                           "\r\n" +
-                                           "* LIST () \"/\" INBOX\r\n" +
+            const string responseMessage = "* LIST () \"/\" INBOX\r\n" +
                                           "A0001 OK LIST completed\r\n";
 
             var tagServiceMock = new Mock<ITagService>();

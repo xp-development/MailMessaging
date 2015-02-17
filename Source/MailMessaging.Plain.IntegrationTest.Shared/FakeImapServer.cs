@@ -9,8 +9,7 @@ namespace MailMessaging.Plain.IntegrationTest
         public FakeImapServer(ITcpListener listener, FakeAccount fakeAccount)
         {
             _listener = listener;
-            _fakeAccount = fakeAccount;
-            _commandManager = new CommandManager(_fakeAccount);
+            _commandManager = new CommandManager(fakeAccount);
         }
 
         public void SetConfiguration(ImapServerConfiguration configuration)
@@ -44,6 +43,22 @@ namespace MailMessaging.Plain.IntegrationTest
                 var commandArgs = matches[0].Groups[3].Value;
 
                 var response = _commandManager.Process(tag, command, commandArgs);
+
+                if (command == "UnknownCommand")
+                {
+                    await args.StreamWriter.WriteStringAsync(response);
+                    continue;
+                }
+
+                if (command == "LOGIN" && response.StartsWith(string.Format("{0} OK", tag)))
+                    _isLoggedIn = true;
+
+                if (!_isLoggedIn && command != "LOGIN")
+                {
+                    await args.StreamWriter.WriteStringAsync(CommandManager.BuildResponse(tag, "NO please login first"));
+                    continue;
+                }
+
                 await args.StreamWriter.WriteStringAsync(response);
             }
         }
@@ -59,7 +74,7 @@ namespace MailMessaging.Plain.IntegrationTest
 
         private ImapServerConfiguration _configuration;
         private readonly CommandManager _commandManager;
-        private readonly FakeAccount _fakeAccount;
         private readonly ITcpListener _listener;
+        private bool _isLoggedIn;
     }
 }
