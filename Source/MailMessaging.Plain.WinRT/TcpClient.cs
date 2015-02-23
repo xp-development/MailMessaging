@@ -6,7 +6,7 @@ using Windows.Networking.Sockets;
 using Windows.Storage.Streams;
 using MailMessaging.Plain.Contracts;
 
-namespace MailMessaging.Plain.WinRT
+namespace MailMessaging.Plain.Core
 {
     public class TcpClient : ITcpClient
     {

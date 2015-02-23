@@ -4,7 +4,7 @@ using MailMessaging.Plain.Core.Commands;
 using Moq;
 using NUnit.Framework;
 
-namespace MailMessaging.Plain.Core.UnitTest._Commands._LoginCommand
+namespace MailMessaging.Plain.Net.UnitTest._Commands._LoginCommand
 {
     [TestFixture]
     public class Request

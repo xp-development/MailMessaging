@@ -6,7 +6,7 @@ using MailMessaging.Plain.Core.Commands;
 using Moq;
 using NUnit.Framework;
 
-namespace MailMessaging.Plain.Core.UnitTest._Commands._ListCommand
+namespace MailMessaging.Plain.Net.UnitTest._Commands._ListCommand
 {
     [TestFixture]
     public class ParseResponse

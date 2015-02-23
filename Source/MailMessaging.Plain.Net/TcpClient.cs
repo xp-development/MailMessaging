@@ -3,7 +3,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MailMessaging.Plain.Contracts;
 
-namespace MailMessaging.Plain.Net
+namespace MailMessaging.Plain.Core
 {
     public class TcpClient : ITcpClient
     {

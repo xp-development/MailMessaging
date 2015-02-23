@@ -3,6 +3,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MailMessaging.Plain.Contracts;
 using MailMessaging.Plain.Contracts.Commands;
+using MetroLog;
 
 namespace MailMessaging.Plain.Core
 {
@@ -35,7 +36,10 @@ namespace MailMessaging.Plain.Core
             where TRequest : IRequest
             where TResponse : IResponse
         {
-            await _tcpClient.WriteStringAsync(message.Request);
+            var request = message.Request;
+
+            _logger.Info("Send: " + request);
+            await _tcpClient.WriteStringAsync(request);
             return message.ParseResponse(await ReadData());
         }
 
@@ -54,10 +58,14 @@ namespace MailMessaging.Plain.Core
                 builder.Append(response);
             }
 
-            return builder.ToString();
+            var receivedMessage = builder.ToString();
+            _logger.Info("Receive: " + receivedMessage);
+            return receivedMessage;
         }
 
         private readonly IAccount _account;
         private readonly ITcpClient _tcpClient;
+
+        private static readonly ILogger _logger = LogManagerFactory.DefaultLogManager.GetLogger<MailMessenger>();
     }
 }

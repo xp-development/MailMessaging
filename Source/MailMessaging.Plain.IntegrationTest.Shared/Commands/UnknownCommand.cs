@@ -1,5 +1,5 @@
-﻿using MailMessaging.Plain.Contracts.Services;
-using MailMessaging.Plain.Core.Commands;
+﻿using MailMessaging.Plain.Core.Commands;
+using MailMessaging.Plain.Contracts.Services;
 
 namespace MailMessaging.Plain.IntegrationTest.Commands
 {

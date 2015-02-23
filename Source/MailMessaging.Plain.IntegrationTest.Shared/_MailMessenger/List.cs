@@ -6,11 +6,6 @@ using MailMessaging.Plain.Contracts.Commands;
 using MailMessaging.Plain.Core;
 using MailMessaging.Plain.Core.Commands;
 using NUnit.Framework;
-#if WinRT
-using MailMessaging.Plain.WinRT;
-#elif NET
-using MailMessaging.Plain.Net;
-#endif
 
 namespace MailMessaging.Plain.IntegrationTest._MailMessenger
 {

@@ -37,6 +37,13 @@
     <Reference Include="FluentAssertions.Core">
       <HintPath>..\packages\FluentAssertions.3.2.1\lib\net45\FluentAssertions.Core.dll</HintPath>
     </Reference>
+    <Reference Include="MetroLog, Version=0.8.6.0, Culture=neutral, PublicKeyToken=ba4ace74c3b410f3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MetroLog.0.8.7.1\lib\net45\MetroLog.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroLog.Platform">
+      <HintPath>..\packages\MetroLog.0.8.7.1\lib\net45\MetroLog.Platform.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework, Version=3.0.5509.17454, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\NUnit.3.0.0-alpha-5\lib\net45\nunit.framework.dll</HintPath>
@@ -60,10 +67,6 @@
     <ProjectReference Include="..\MailMessaging.Plain.Contracts\MailMessaging.Plain.Contracts.csproj">
       <Project>{d016639b-3a2e-4a53-8eec-11a3433a98b3}</Project>
       <Name>MailMessaging.Plain.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MailMessaging.Plain.Core\MailMessaging.Plain.Core.csproj">
-      <Project>{9DB4B409-832D-4A2C-B462-49C1091A6EB0}</Project>
-      <Name>MailMessaging.Plain.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\MailMessaging.Plain.IntegrationTest.Contracts\MailMessaging.Plain.IntegrationTest.Contracts.csproj">
       <Project>{9CDC3BFD-3451-4029-A39E-686766B04F2D}</Project>

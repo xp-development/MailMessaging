@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using FluentAssertions;
 using MailMessaging.Plain.Contracts;
+using MailMessaging.Plain.Core;
 using Moq;
 using NUnit.Framework;
 
-namespace MailMessaging.Plain.Core.UnitTest._MailMessenger
+namespace MailMessaging.Plain.Net.UnitTest._MailMessenger
 {
     [TestFixture]
     public class Connect
