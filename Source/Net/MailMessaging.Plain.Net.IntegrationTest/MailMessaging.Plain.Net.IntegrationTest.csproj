@@ -30,23 +30,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FluentAssertions, Version=3.2.1.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\FluentAssertions.3.2.1\lib\net45\FluentAssertions.dll</HintPath>
+    <Reference Include="FluentAssertions">
+      <HintPath>..\..\packages\FluentAssertions.3.2.1\lib\net45\FluentAssertions.dll</HintPath>
     </Reference>
     <Reference Include="FluentAssertions.Core">
-      <HintPath>..\packages\FluentAssertions.3.2.1\lib\net45\FluentAssertions.Core.dll</HintPath>
+      <HintPath>..\..\packages\FluentAssertions.3.2.1\lib\net45\FluentAssertions.Core.dll</HintPath>
     </Reference>
-    <Reference Include="MetroLog, Version=0.8.6.0, Culture=neutral, PublicKeyToken=ba4ace74c3b410f3, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MetroLog.0.8.7.1\lib\net45\MetroLog.dll</HintPath>
+    <Reference Include="MetroLog">
+      <HintPath>..\..\packages\MetroLog.0.8.7.1\lib\net45\MetroLog.dll</HintPath>
     </Reference>
     <Reference Include="MetroLog.Platform">
-      <HintPath>..\packages\MetroLog.0.8.7.1\lib\net45\MetroLog.Platform.dll</HintPath>
+      <HintPath>..\..\packages\MetroLog.0.8.7.1\lib\net45\MetroLog.Platform.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework, Version=3.0.5509.17454, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\NUnit.3.0.0-alpha-5\lib\net45\nunit.framework.dll</HintPath>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\packages\NUnit.3.0.0-alpha-5\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -61,14 +58,11 @@
     <Compile Include="TcpListener.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MailMessaging.Plain.Contracts\MailMessaging.Plain.Contracts.csproj">
+    <ProjectReference Include="..\..\MailMessaging.Plain.Contracts\MailMessaging.Plain.Contracts.csproj">
       <Project>{d016639b-3a2e-4a53-8eec-11a3433a98b3}</Project>
       <Name>MailMessaging.Plain.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MailMessaging.Plain.IntegrationTest.Contracts\MailMessaging.Plain.IntegrationTest.Contracts.csproj">
+    <ProjectReference Include="..\..\MailMessaging.Plain.IntegrationTest.Contracts\MailMessaging.Plain.IntegrationTest.Contracts.csproj">
       <Project>{9CDC3BFD-3451-4029-A39E-686766B04F2D}</Project>
       <Name>MailMessaging.Plain.IntegrationTest.Contracts</Name>
     </ProjectReference>
@@ -77,7 +71,10 @@
       <Name>MailMessaging.Plain.Net</Name>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="..\MailMessaging.Plain.IntegrationTest.Shared\MailMessaging.Plain.IntegrationTest.Shared.projitems" Label="Shared" Condition="Exists('..\MailMessaging.Plain.IntegrationTest.Shared\MailMessaging.Plain.IntegrationTest.Shared.projitems')" />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="..\..\MailMessaging.Plain.IntegrationTest.Shared\MailMessaging.Plain.IntegrationTest.Shared.projitems" Label="Shared" Condition="Exists('..\..\MailMessaging.Plain.IntegrationTest.Shared\MailMessaging.Plain.IntegrationTest.Shared.projitems')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

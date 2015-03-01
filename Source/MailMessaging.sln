@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailMessaging.Plain.Net", "MailMessaging.Plain.Net\MailMessaging.Plain.Net.csproj", "{63C3D78A-2708-4420-9AF0-6BC917523113}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailMessaging.Plain.Net", "Net\MailMessaging.Plain.Net\MailMessaging.Plain.Net.csproj", "{63C3D78A-2708-4420-9AF0-6BC917523113}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailMessaging.Plain.Net.UnitTest", "MailMessaging.Plain.Net.UnitTest\MailMessaging.Plain.Net.UnitTest.csproj", "{0F9C73F7-42AA-4C07-ADF5-CE3669C10778}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailMessaging.Plain.Net.UnitTest", "Net\MailMessaging.Plain.Net.UnitTest\MailMessaging.Plain.Net.UnitTest.csproj", "{0F9C73F7-42AA-4C07-ADF5-CE3669C10778}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailMessaging.Plain.Net.IntegrationTest", "MailMessaging.Plain.Net.IntegrationTest\MailMessaging.Plain.Net.IntegrationTest.csproj", "{F3CC3F00-5870-4370-9F34-4C3AF27AD27B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailMessaging.Plain.Net.IntegrationTest", "Net\MailMessaging.Plain.Net.IntegrationTest\MailMessaging.Plain.Net.IntegrationTest.csproj", "{F3CC3F00-5870-4370-9F34-4C3AF27AD27B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailMessaging.Plain.WinRT", "MailMessaging.Plain.WinRT\MailMessaging.Plain.WinRT.csproj", "{5CC28467-1F02-495C-A131-AED7D7A80915}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailMessaging.Plain.WinRT", "WinRT\MailMessaging.Plain.WinRT\MailMessaging.Plain.WinRT.csproj", "{5CC28467-1F02-495C-A131-AED7D7A80915}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailMessaging.Plain.WinRT.UnitTest", "MailMessaging.Plain.WinRT.UnitTest\MailMessaging.Plain.WinRT.UnitTest.csproj", "{C5EE4AA2-7367-4C09-AB85-02BF05086DD2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailMessaging.Plain.WinRT.UnitTest", "WinRT\MailMessaging.Plain.WinRT.UnitTest\MailMessaging.Plain.WinRT.UnitTest.csproj", "{C5EE4AA2-7367-4C09-AB85-02BF05086DD2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailMessaging.Plain.Contracts", "MailMessaging.Plain.Contracts\MailMessaging.Plain.Contracts.csproj", "{D016639B-3A2E-4A53-8EEC-11A3433A98B3}"
 EndProject
@@ -21,7 +21,7 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "MailMessaging.Plain.Integra
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "MailMessaging.Plain.Core.Shared", "MailMessaging.Plain.Core.Shared\MailMessaging.Plain.Core.Shared.shproj", "{E12FD9CC-2F19-40C7-8E65-F558887B5F5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailMessaging.Plain.WinRT.IntegrationTest", "MailMessaging.Plain.WinRT.IntegrationTest\MailMessaging.Plain.WinRT.IntegrationTest.csproj", "{7DE7E11E-988C-454A-8E17-089B432104E3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailMessaging.Plain.WinRT.IntegrationTest", "WinRT\MailMessaging.Plain.WinRT.IntegrationTest\MailMessaging.Plain.WinRT.IntegrationTest.csproj", "{7DE7E11E-988C-454A-8E17-089B432104E3}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution

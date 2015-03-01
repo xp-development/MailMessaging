@@ -138,11 +138,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MailMessaging.Plain.Contracts\MailMessaging.Plain.Contracts.csproj">
+    <ProjectReference Include="..\..\MailMessaging.Plain.Contracts\MailMessaging.Plain.Contracts.csproj">
       <Project>{d016639b-3a2e-4a53-8eec-11a3433a98b3}</Project>
       <Name>MailMessaging.Plain.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MailMessaging.Plain.IntegrationTest.Contracts\MailMessaging.Plain.IntegrationTest.Contracts.csproj">
+    <ProjectReference Include="..\..\MailMessaging.Plain.IntegrationTest.Contracts\MailMessaging.Plain.IntegrationTest.Contracts.csproj">
       <Project>{9cdc3bfd-3451-4029-a39e-686766b04f2d}</Project>
       <Name>MailMessaging.Plain.IntegrationTest.Contracts</Name>
     </ProjectReference>
@@ -153,32 +153,32 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FluentAssertions">
-      <HintPath>..\packages\FluentAssertions.3.2.1\lib\win8\FluentAssertions.dll</HintPath>
+      <HintPath>..\..\packages\FluentAssertions.3.2.1\lib\win8\FluentAssertions.dll</HintPath>
     </Reference>
     <Reference Include="FluentAssertions.Core">
-      <HintPath>..\packages\FluentAssertions.3.2.1\lib\win8\FluentAssertions.Core.dll</HintPath>
+      <HintPath>..\..\packages\FluentAssertions.3.2.1\lib\win8\FluentAssertions.Core.dll</HintPath>
     </Reference>
-    <Reference Include="MetroLog, Version=0.8.6.0, Culture=neutral, PublicKeyToken=ba4ace74c3b410f3, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MetroLog.0.8.6\lib\netcore45\MetroLog.dll</HintPath>
+    <Reference Include="MetroLog">
+      <HintPath>..\..\packages\MetroLog.0.8.6\lib\netcore45\MetroLog.dll</HintPath>
     </Reference>
     <Reference Include="MetroLog.Platform">
-      <HintPath>..\packages\MetroLog.0.8.6\lib\netcore45\MetroLog.Platform.dll</HintPath>
+      <HintPath>..\..\packages\MetroLog.0.8.6\lib\netcore45\MetroLog.Platform.dll</HintPath>
     </Reference>
     <Reference Include="MetroLog.Targets">
-      <HintPath>..\packages\MetroLog.Targets.1.0.0.0\lib\portable-win81+wpa81\MetroLog.Targets.dll</HintPath>
+      <HintPath>..\..\packages\MetroLog.Targets.1.0.0.0\lib\portable-win81+wpa81\MetroLog.Targets.dll</HintPath>
     </Reference>
     <Reference Include="MetroLog.WinRT">
-      <HintPath>..\packages\MetroLog.0.8.6\lib\netcore45\MetroLog.WinRT.winmd</HintPath>
+      <HintPath>..\..\packages\MetroLog.0.8.6\lib\netcore45\MetroLog.WinRT.winmd</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.3.0.0-alpha-5\lib\portable-net45+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\nunit.framework.dll</HintPath>
+      <HintPath>..\..\packages\NUnit.3.0.0-alpha-5\lib\portable-net45+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\nunit.framework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>
-  <Import Project="..\MailMessaging.Plain.IntegrationTest.Shared\MailMessaging.Plain.IntegrationTest.Shared.projitems" Label="Shared" Condition="Exists('..\MailMessaging.Plain.IntegrationTest.Shared\MailMessaging.Plain.IntegrationTest.Shared.projitems')" />
+  <Import Project="..\..\MailMessaging.Plain.IntegrationTest.Shared\MailMessaging.Plain.IntegrationTest.Shared.projitems" Label="Shared" Condition="Exists('..\..\MailMessaging.Plain.IntegrationTest.Shared\MailMessaging.Plain.IntegrationTest.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
