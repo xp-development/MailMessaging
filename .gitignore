@@ -3,3 +3,6 @@
 Source/MailMessaging.v12.suo
 Source/packages/**
 Source/MailMessaging.sln.DotSettings.user
+Build/Output/**
+**/obj/Release/**
+Source/WinRT/MailMessaging.Plain.WinRT.IntegrationTest/AppPackages/**
