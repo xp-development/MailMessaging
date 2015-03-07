@@ -152,23 +152,28 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="FluentAssertions">
-      <HintPath>..\..\packages\FluentAssertions.3.2.1\lib\win8\FluentAssertions.dll</HintPath>
+    <Reference Include="FluentAssertions, Version=3.3.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\FluentAssertions.3.3.0\lib\win8\FluentAssertions.dll</HintPath>
     </Reference>
-    <Reference Include="FluentAssertions.Core">
-      <HintPath>..\..\packages\FluentAssertions.3.2.1\lib\win8\FluentAssertions.Core.dll</HintPath>
+    <Reference Include="FluentAssertions.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\FluentAssertions.3.3.0\lib\win8\FluentAssertions.Core.dll</HintPath>
     </Reference>
-    <Reference Include="MetroLog">
-      <HintPath>..\..\packages\MetroLog.0.8.6\lib\netcore45\MetroLog.dll</HintPath>
+    <Reference Include="MetroLog, Version=0.8.6.0, Culture=neutral, PublicKeyToken=ba4ace74c3b410f3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\MetroLog.0.8.7.1\lib\win81\MetroLog.dll</HintPath>
     </Reference>
-    <Reference Include="MetroLog.Platform">
-      <HintPath>..\..\packages\MetroLog.0.8.6\lib\netcore45\MetroLog.Platform.dll</HintPath>
+    <Reference Include="MetroLog.Platform, Version=0.8.6.0, Culture=neutral, PublicKeyToken=ba4ace74c3b410f3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\MetroLog.0.8.7.1\lib\win81\MetroLog.Platform.dll</HintPath>
     </Reference>
     <Reference Include="MetroLog.Targets">
       <HintPath>..\..\packages\MetroLog.Targets.1.0.0.0\lib\portable-win81+wpa81\MetroLog.Targets.dll</HintPath>
     </Reference>
-    <Reference Include="MetroLog.WinRT">
-      <HintPath>..\..\packages\MetroLog.0.8.6\lib\netcore45\MetroLog.WinRT.winmd</HintPath>
+    <Reference Include="MetroLog.WinRT, Version=0.8.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\MetroLog.0.8.7.1\lib\win81\MetroLog.WinRT.winmd</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\..\packages\NUnit.3.0.0-alpha-5\lib\portable-net45+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\nunit.framework.dll</HintPath>
