@@ -9,13 +9,26 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
     public class Connect : TestBase
     {
         [Test]
-        public void ShouldConnectServer()
+        public void ShouldConnectServerWithoutTls()
         {
             var account = new Account(TestServer, TestPort, false);
 
             var tcpClient = new TcpClient();
             var messenger = new MailMessenger(account, tcpClient);
             messenger.Connect().Result.Should().Be(ConnectResult.Connected);
+        }
+
+        [Test]
+        public void ShouldConnectServerWithTls()
+        {
+            ActivateServerTls();
+
+            var account = new Account(TestServer, TestPort, true);
+
+            var tcpClient = new TcpClient();
+            var messenger = new MailMessenger(account, tcpClient);
+            messenger.Connect().Result.Should().Be(ConnectResult.Connected);
+        
         }
 
         [Test]

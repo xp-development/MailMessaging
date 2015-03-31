@@ -25,6 +25,12 @@ namespace MailMessaging.Plain.IntegrationTest
             _server.Start();
         }
 
+        [TearDown]
+        public void TearDown()
+        {
+            _server.Stop();
+        }
+
         protected MailMessenger GetLoggedInMailMessenger()
         {
             var account = new Account(TestServer, TestPort, false);
@@ -52,10 +58,9 @@ namespace MailMessaging.Plain.IntegrationTest
             return (FakeAccount) xmlSerializer.Deserialize(xmlStream);
         }
 
-        [TearDown]
-        public void TearDown()
+        protected void ActivateServerTls()
         {
-            _server.Stop();
+            _server.UseTls(true);
         }
 
         private FakeImapServer _server;

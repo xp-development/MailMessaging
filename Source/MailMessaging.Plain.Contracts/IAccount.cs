@@ -4,6 +4,6 @@
     {
         string Server { get; }
         int Port { get; }
-        bool UseSsl { get; }
+        bool UseTls { get; }
     }
 }

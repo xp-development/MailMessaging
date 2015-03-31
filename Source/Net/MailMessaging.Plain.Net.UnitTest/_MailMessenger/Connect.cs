@@ -40,7 +40,7 @@ namespace MailMessaging.Plain.Net.UnitTest._MailMessenger
         }
 
         [Test]
-        public void ShouldNotConnectIfSslIsRequiredButNotUsed()
+        public void ShouldNotConnectIfTlsIsRequiredButNotUsed()
         {
             var account = new Account("valid.server", 42, false);
             var tcpClientMock = new Mock<ITcpClient>();

@@ -12,20 +12,20 @@ namespace MailMessaging.Plain.IntegrationTest
             get { return _port; }
         }
 
-        public bool UseSsl
+        public bool UseTls
         {
-            get { return _useSsl; }
+            get { return _useTls; }
         }
 
-        public ImapServerConfiguration(string ipAddress, int port, bool useSsl)
+        public ImapServerConfiguration(string ipAddress, int port, bool useTls)
         {
             _ipAddress = ipAddress;
             _port = port;
-            _useSsl = useSsl;
+            _useTls = useTls;
         }
 
         private readonly string _ipAddress;
         private readonly int _port;
-        private readonly bool _useSsl;
+        private readonly bool _useTls;
     }
 }

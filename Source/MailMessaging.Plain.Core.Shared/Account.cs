@@ -6,13 +6,13 @@ namespace MailMessaging.Plain.Core
     {
         public string Server { get; private set; }
         public int Port { get; private set; }
-        public bool UseSsl { get; private set; }
+        public bool UseTls { get; private set; }
 
-        public Account(string server, int port, bool useSsl)
+        public Account(string server, int port, bool useTls)
         {
             Server = server;
             Port = port;
-            UseSsl = useSsl;
+            UseTls = useTls;
         }
     }
 }

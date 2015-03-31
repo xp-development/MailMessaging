@@ -1,4 +1,6 @@
 using System.IO;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using MailMessaging.Plain.Contracts;
@@ -12,10 +14,23 @@ namespace MailMessaging.Plain.Core
             _client = new System.Net.Sockets.TcpClient();
             await _client.ConnectAsync(hostName, port);
 
-            _stream = _client.GetStream();
+            _stream = useTls ? (Stream) new SslStream(_client.GetStream(), true, UserCertificateValidationCallback) : _client.GetStream();
+            var sslStream = _stream as SslStream;
+            if(sslStream != null)
+                sslStream.AuthenticateAsClient(hostName);
 
             _streamWriter = new StreamWriter(_stream);
             _streamReader = new StreamReader(_stream);
+        }
+
+        private static bool UserCertificateValidationCallback(object sender, X509Certificate certificate,
+            X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        {
+#if TEST
+            return true;
+#endif
+
+            return sslPolicyErrors == SslPolicyErrors.None;
         }
 
         public void Disconnect()

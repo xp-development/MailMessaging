@@ -21,13 +21,15 @@ namespace MailMessaging.Plain.Core
         {
             try
             {
-                await _tcpClient.Connect(_account.Server, _account.Port, _account.UseSsl);
+                _logger.Info("Connect mail server '{0}:{1}'. UseTls={2}", _account.Server, _account.Port, _account.UseTls);
+                await _tcpClient.Connect(_account.Server, _account.Port, _account.UseTls);
 
                 IsConnected = (await ReadData()).StartsWith("* OK");
                 return IsConnected ? ConnectResult.Connected : ConnectResult.UnknownHost;
             }
-            catch (Exception)
+            catch (Exception exception)
             {
+                _logger.Warn("Cannot connect server!", exception);
                 return ConnectResult.UnknownHost;
             }
         }
