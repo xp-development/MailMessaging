@@ -2,14 +2,13 @@
 using System.IO;
 using System.Text;
 using System.Xml.Serialization;
-using NUnit.Framework;
+using Xunit;
 
 namespace MailMessaging.Plain.IntegrationTest
 {
-    [TestFixture, Explicit]
     public class Manual
     {
-        [Test]
+        [Fact]
         public void CreateFakeAccountXml()
         {
             var xmlSerializer = new XmlSerializer(typeof(FakeAccount));

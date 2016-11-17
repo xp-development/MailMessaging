@@ -1,14 +1,13 @@
 ﻿using FluentAssertions;
 using MailMessaging.Plain.Contracts;
 using MailMessaging.Plain.Core;
-using NUnit.Framework;
+using Xunit;
 
 namespace MailMessaging.Plain.IntegrationTest._MailMessenger
 {
-    [TestFixture]
     public class Connect : TestBase
     {
-        [Test]
+        [Fact]
         public void ShouldConnectServerWithoutTls()
         {
             var account = new Account(TestServer, TestPort, false);
@@ -18,7 +17,7 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
             messenger.Connect().Result.Should().Be(ConnectResult.Connected);
         }
 
-        [Test]
+        [Fact]
         public void ShouldConnectServerWithTls()
         {
             ActivateServerTls();
@@ -27,11 +26,10 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
 
             var tcpClient = new TcpClient();
             var messenger = new MailMessenger(account, tcpClient);
-            messenger.Connect().Result.Should().Be(ConnectResult.Connected);
-        
+           messenger.Connect().Result.Should().Be(ConnectResult.Connected);
         }
 
-        [Test]
+        [Fact]
         public void ShouldNotConnectServerIfHostIsWrong()
         {
             var account = new Account("222.222.222.222", TestPort, false);
@@ -41,7 +39,7 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
             messenger.Connect().Result.Should().Be(ConnectResult.UnknownHost);
         }
 
-        [Test]
+        [Fact]
         public void ShouldNotConnectServerIfPortIsWrong()
         {
             var account = new Account(TestServer, 11111, false);

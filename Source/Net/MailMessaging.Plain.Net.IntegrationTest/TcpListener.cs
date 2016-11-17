@@ -31,7 +31,7 @@ namespace MailMessaging.Plain.IntegrationTest
             if(sslStream != null)
             {
                 byte[] certificate;
-                using (var certStream = Assembly.GetAssembly(typeof(TcpListener)).GetManifestResourceStream("MailMessaging.Plain.IntegrationTest.MailMessaging.pfx"))
+                using (var certStream = Assembly.GetAssembly(typeof(TcpListener)).GetManifestResourceStream("MailMessaging.Plain.IntegrationTest.TestFiles.MailMessaging.pfx"))
                 {
                     certificate = new byte[certStream.Length];
                     certStream.Read(certificate, 0, (int)certStream.Length);
@@ -44,10 +44,7 @@ namespace MailMessaging.Plain.IntegrationTest
 
         public void Stop()
         {
-            if (_listener == null)
-                return;
-
-            _listener.Stop();
+            _listener?.Stop();
         }
 
         public void UseTls(bool useTls)
@@ -57,8 +54,7 @@ namespace MailMessaging.Plain.IntegrationTest
 
         private void InvokeConnectionReceived(ConnectionReceivedEventHandlerArgs args)
         {
-            if (ConnectionReceived != null)
-                ConnectionReceived(this, args);
+            ConnectionReceived?.Invoke(this, args);
         }
 
         private System.Net.Sockets.TcpListener _listener;

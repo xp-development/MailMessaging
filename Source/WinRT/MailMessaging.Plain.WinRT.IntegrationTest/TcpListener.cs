@@ -1,8 +1,8 @@
+using System.Diagnostics;
 using System.IO;
 using Windows.Networking;
 using Windows.Networking.Sockets;
 using MailMessaging.Plain.IntegrationTest.Contracts;
-using MetroLog;
 
 namespace MailMessaging.Plain.IntegrationTest
 {
@@ -35,16 +35,14 @@ namespace MailMessaging.Plain.IntegrationTest
 
         public void UseTls(bool useTls)
         {
-            _logger.Error("Tls is not supported.");
+            Debug.WriteLine("Tls is not supported.");
         }
 
         private void InvokeConnectionReceived(ConnectionReceivedEventHandlerArgs args)
         {
-            if (ConnectionReceived != null)
-                ConnectionReceived(this, args);
+            ConnectionReceived?.Invoke(this, args);
         }
 
         private StreamSocketListener _listener;
-        private static readonly ILogger _logger = LogManagerFactory.DefaultLogManager.GetLogger<TcpListener>();	
     }
 }

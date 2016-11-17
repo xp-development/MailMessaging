@@ -2,15 +2,14 @@
 using MailMessaging.Plain.Contracts;
 using MailMessaging.Plain.Contracts.Commands;
 using MailMessaging.Plain.Core;
-using NUnit.Framework;
+using Xunit;
 using TestCommands = MailMessaging.Plain.IntegrationTest.Commands;
 
 namespace MailMessaging.Plain.IntegrationTest._MailMessenger
 {
-    [TestFixture]
     public class UnknownCommand : TestBase
     {
-        [Test]
+        [Fact]
         public void ShouldReceiveBadResponseIfCommandIsUnknown()
         {
             var account = new Account(TestServer, TestPort, false);

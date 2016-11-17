@@ -39,12 +39,6 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MetroLog">
-      <HintPath>..\..\packages\MetroLog.0.8.7.1\lib\net45\MetroLog.dll</HintPath>
-    </Reference>
-    <Reference Include="MetroLog.Platform">
-      <HintPath>..\..\packages\MetroLog.0.8.7.1\lib\net45\MetroLog.Platform.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
@@ -63,9 +57,6 @@
       <Project>{d016639b-3a2e-4a53-8eec-11a3433a98b3}</Project>
       <Name>MailMessaging.Plain.Contracts</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="..\..\MailMessaging.Plain.Core.Shared\MailMessaging.Plain.Core.Shared.projitems" Label="Shared" Condition="Exists('..\..\MailMessaging.Plain.Core.Shared\MailMessaging.Plain.Core.Shared.projitems')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

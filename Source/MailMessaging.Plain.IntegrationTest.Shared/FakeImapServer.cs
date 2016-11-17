@@ -1,9 +1,9 @@
 using System;
+using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using MailMessaging.Plain.IntegrationTest.Contracts;
-using MetroLog;
 
 namespace MailMessaging.Plain.IntegrationTest
 {
@@ -25,7 +25,7 @@ namespace MailMessaging.Plain.IntegrationTest
             if (_configuration == null)
                 throw new Exception("Imap server is not configured! Call SetConfiguration(ImapServerConfiguration configuration).");
 
-            _logger.Info("Start fake imap server '{0}:{1}'.", _configuration.IpAddress, _configuration.Port);
+            Debug.WriteLine("Start fake imap server '{0}:{1}'.", _configuration.IpAddress, _configuration.Port);
             _cancellationToken = new CancellationTokenSource();
             _tcpListener.ConnectionReceived += OnTcpListenerOnConnectionReceived;
             _tcpListener.Start(_configuration.IpAddress, _configuration.Port);
@@ -33,13 +33,13 @@ namespace MailMessaging.Plain.IntegrationTest
 
         private async void OnTcpListenerOnConnectionReceived(object sender, ConnectionReceivedEventHandlerArgs args)
         {
-            _logger.Info("Receive connection.");
+            Debug.WriteLine("Receive connection.");
             await SendMessage("* OK IMAP server ready\r\n", args.StreamWriter, _cancellationToken.Token);
 
             while (!_cancellationToken.IsCancellationRequested)
             {
                 var receivedMessage = await args.StreamReader.ReadStringAsync(_cancellationToken.Token);
-                _logger.Info("Receive: {0}", receivedMessage);
+                Debug.WriteLine("Receive: {0}", receivedMessage);
                 var regex = new Regex("^(A\\d{4})\\s(.*?)\\s(.*)");
 
                 var matches = regex.Matches(receivedMessage);
@@ -74,7 +74,7 @@ namespace MailMessaging.Plain.IntegrationTest
             if (_tcpListener == null)
                 return;
 
-            _logger.Info("Stop fake imap server '{0}:{1}'.", _configuration.IpAddress, _configuration.Port);
+            Debug.WriteLine("Stop fake imap server '{0}:{1}'.", _configuration.IpAddress, _configuration.Port);
 
             _cancellationToken.Cancel();
             _tcpListener.ConnectionReceived -= OnTcpListenerOnConnectionReceived;
@@ -88,12 +88,11 @@ namespace MailMessaging.Plain.IntegrationTest
 
         private static async Task SendMessage(string message, IStreamWriter streamWriter, CancellationToken token)
         {
-            _logger.Info("Send: {0}", message);
+            Debug.WriteLine("Send: {0}", message);
             await streamWriter.WriteStringAsync(message, token);
         }
 
         private ImapServerConfiguration _configuration;
-        private static readonly ILogger _logger = LogManagerFactory.DefaultLogManager.GetLogger<FakeImapServer>();
         private readonly CommandManager _commandManager;
         private readonly ITcpListener _tcpListener;
         private bool _isLoggedIn;

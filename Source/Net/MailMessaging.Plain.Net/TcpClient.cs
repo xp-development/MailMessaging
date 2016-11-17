@@ -16,8 +16,7 @@ namespace MailMessaging.Plain.Core
 
             _stream = useTls ? (Stream) new SslStream(_client.GetStream(), true, UserCertificateValidationCallback) : _client.GetStream();
             var sslStream = _stream as SslStream;
-            if(sslStream != null)
-                sslStream.AuthenticateAsClient(hostName);
+            sslStream?.AuthenticateAsClient(hostName);
 
             _streamWriter = new StreamWriter(_stream);
             _streamReader = new StreamReader(_stream);

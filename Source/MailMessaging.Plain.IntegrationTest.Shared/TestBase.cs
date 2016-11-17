@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+﻿using System;
 using System.Xml.Serialization;
 using FluentAssertions;
 using MailMessaging.Plain.Contracts;
@@ -7,14 +7,12 @@ using MailMessaging.Plain.Contracts.Services;
 using MailMessaging.Plain.Core;
 using MailMessaging.Plain.Core.Services;
 using MailMessaging.Plain.Core.Commands;
-using NUnit.Framework;
 
 namespace MailMessaging.Plain.IntegrationTest
 {
-    public class TestBase
+    public class TestBase : IDisposable
     {
-        [SetUp]
-        public void SetUp()
+        public TestBase()
         {
             TagService = new TagService();
 
@@ -25,8 +23,7 @@ namespace MailMessaging.Plain.IntegrationTest
             _server.Start();
         }
 
-        [TearDown]
-        public void TearDown()
+        public void Dispose()
         {
             _server.Stop();
         }
@@ -53,7 +50,7 @@ namespace MailMessaging.Plain.IntegrationTest
             var assembly = typeof (TcpListener).Assembly;
 #endif
 
-            var xmlStream = assembly.GetManifestResourceStream("MailMessaging.Plain.IntegrationTest.FakeAccount.xml");
+            var xmlStream = assembly.GetManifestResourceStream("MailMessaging.Plain.IntegrationTest.TestFiles.FakeAccount.xml");
 
             return (FakeAccount) xmlSerializer.Deserialize(xmlStream);
         }
@@ -63,7 +60,7 @@ namespace MailMessaging.Plain.IntegrationTest
             _server.UseTls(true);
         }
 
-        private FakeImapServer _server;
+        private readonly FakeImapServer _server;
         protected ITagService TagService;
         protected int TestPort = 51234;
         protected string TestServer = "127.0.0.1";

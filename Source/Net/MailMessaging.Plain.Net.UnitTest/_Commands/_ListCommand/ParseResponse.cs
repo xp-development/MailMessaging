@@ -4,14 +4,13 @@ using MailMessaging.Plain.Contracts.Commands;
 using MailMessaging.Plain.Contracts.Services;
 using MailMessaging.Plain.Core.Commands;
 using Moq;
-using NUnit.Framework;
+using Xunit;
 
 namespace MailMessaging.Plain.Net.UnitTest._Commands._ListCommand
 {
-    [TestFixture]
     public class ParseResponse
     {
-        [Test]
+        [Fact]
         public void ShouldParseSuccessfulMessage()
         {
             const string responseMessage = "* LIST (\\Drafts \\NoInferiors) \"/\" Drafts\r\n" +
@@ -79,7 +78,7 @@ namespace MailMessaging.Plain.Net.UnitTest._Commands._ListCommand
             listFolders[7].Name.Should().Be("Junk");
         }
 
-        [Test]
+        [Fact]
         public void ShouldParseEmptyResponse()
         {
             const string responseMessage = "A0001 OK LIST completed\r\n";
@@ -95,7 +94,7 @@ namespace MailMessaging.Plain.Net.UnitTest._Commands._ListCommand
             listFolders.Length.Should().Be(0);
         }
 
-        [Test]
+        [Fact]
         public void ShouldParseResponseWithoutFolderAttributes()
         {
             const string responseMessage = "* LIST () \"/\" INBOX\r\n" +

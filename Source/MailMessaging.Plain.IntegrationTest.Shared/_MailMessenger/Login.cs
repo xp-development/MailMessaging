@@ -3,14 +3,13 @@ using MailMessaging.Plain.Contracts;
 using MailMessaging.Plain.Contracts.Commands;
 using MailMessaging.Plain.Core;
 using MailMessaging.Plain.Core.Commands;
-using NUnit.Framework;
+using Xunit;
 
 namespace MailMessaging.Plain.IntegrationTest._MailMessenger
 {
-    [TestFixture]
     public class Login : TestBase
     {
-        [Test]
+        [Fact]
         public void ShouldConnectServer()
         {
             var account = new Account(TestServer, TestPort, false);
@@ -25,9 +24,10 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
             response.Message.Should().Be("A0001 OK LOGIN completed\r\n");
         }
 
-        [TestCase("invalidUserName", "invalidPassword")]
-        [TestCase("validUserName", "invalidPassword")]
-        [TestCase("invalidUserName", "validPassword")]
+        [Theory]
+        [InlineData("invalidUserName", "invalidPassword")]
+        [InlineData("validUserName", "invalidPassword")]
+        [InlineData("invalidUserName", "validPassword")]
         public void ShouldReceiveNoResponseIfLoginDataAreInvalid(string userName, string invalidpassword)
         {
             var account = new Account(TestServer, TestPort, false);

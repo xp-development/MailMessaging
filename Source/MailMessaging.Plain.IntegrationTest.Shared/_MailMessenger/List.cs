@@ -5,26 +5,26 @@ using MailMessaging.Plain.Contracts;
 using MailMessaging.Plain.Contracts.Commands;
 using MailMessaging.Plain.Core;
 using MailMessaging.Plain.Core.Commands;
-using NUnit.Framework;
+using Xunit;
 
 namespace MailMessaging.Plain.IntegrationTest._MailMessenger
 {
-    [TestFixture]
     public class List : TestBase
     {
-        [TestCase("", "*", true, true, true, true, true, true, true, true)]
-        [TestCase("INBOX", "*", false, false, false, true, true, true, false, false)]
-        [TestCase("INBOX/Subfolder", "", false, false, false, false, true, false, false, false)]
-        [TestCase("INBOX/Subfolder", "/Subsubfolder", false, false, false, false, false, true, false, false)]
-        [TestCase("INBOX", "/Subfolder/Subsubfolder", false, false, false, false, false, true, false, false)]
-        [TestCase("INBOX", "/Subfold*", false, false, false, false, true, true, false, false)]
-        [TestCase("INBOX", "Subfolder", false, false, false, false, false, false, false, false)]
-        [TestCase("", "INBOX/Subfolder", false, false, false, false, true, false, false, false)]
-        [TestCase("", "INBOX/Subfolder*", false, false, false, false, true, true, false, false)]
-        [TestCase("", "INBOX/Subfolder/Subsubfolder", false, false, false, false, false, true, false, false)]
-        [TestCase("Sent", "", false, false, true, false, false, false, false, false)]
-        [TestCase("Trash", "", false, true, false, false, false, false, false, false)]
-        [TestCase("", "Drafts", true, false, false, false, false, false, false, false)]
+        [Theory]
+        [InlineData("", "*", true, true, true, true, true, true, true, true)]
+        [InlineData("INBOX", "*", false, false, false, true, true, true, false, false)]
+        [InlineData("INBOX/Subfolder", "", false, false, false, false, true, false, false, false)]
+        [InlineData("INBOX/Subfolder", "/Subsubfolder", false, false, false, false, false, true, false, false)]
+        [InlineData("INBOX", "/Subfolder/Subsubfolder", false, false, false, false, false, true, false, false)]
+        [InlineData("INBOX", "/Subfold*", false, false, false, false, true, true, false, false)]
+        [InlineData("INBOX", "Subfolder", false, false, false, false, false, false, false, false)]
+        [InlineData("", "INBOX/Subfolder", false, false, false, false, true, false, false, false)]
+        [InlineData("", "INBOX/Subfolder*", false, false, false, false, true, true, false, false)]
+        [InlineData("", "INBOX/Subfolder/Subsubfolder", false, false, false, false, false, true, false, false)]
+        [InlineData("Sent", "", false, false, true, false, false, false, false, false)]
+        [InlineData("Trash", "", false, true, false, false, false, false, false, false)]
+        [InlineData("", "Drafts", true, false, false, false, false, false, false, false)]
         public void ShouldReceiveAllFolders(string referenceName, string mailboxName, bool checkDraftsFolder, bool checkTrashFolder, bool checkSentFolder, bool checkInboxFolder,
             bool checkSubfolderFolder, bool checkSubsubfolderFolder, bool checkOutboxFolder, bool checkJunkFolder)
         {
@@ -45,7 +45,7 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
             CheckJunkFolder(checkJunkFolder, folders);
         }
 
-        [Test]
+        [Fact]
         public void ShouldReceiveNoResponseIfLoginDataAreInvalid()
         {
             var account = new Account(TestServer, TestPort, false);

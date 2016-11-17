@@ -4,14 +4,13 @@ using MailMessaging.Plain.Contracts.Commands;
 using MailMessaging.Plain.Contracts.Services;
 using MailMessaging.Plain.Core.Commands;
 using Moq;
-using NUnit.Framework;
+using Xunit;
 
 namespace MailMessaging.Plain.Net.UnitTest._Commands._LoginCommand
 {
-    [TestFixture]
     public class ParseResponse
     {
-        [Test]
+        [Fact]
         public void ShouldParseSuccessfulMessage()
         {
             var tagServiceMock = new Mock<ITagService>();
@@ -23,7 +22,7 @@ namespace MailMessaging.Plain.Net.UnitTest._Commands._LoginCommand
             response.Result.Should().Be(ResponseResult.OK);
         }
 
-        [Test]
+        [Fact]
         public void ShouldReceiveRepsonseResultNoIfLoginDataIsWrong()
         {
             var tagServiceMock = new Mock<ITagService>();
@@ -35,7 +34,7 @@ namespace MailMessaging.Plain.Net.UnitTest._Commands._LoginCommand
             response.Result.Should().Be(ResponseResult.NO);
         }
 
-        [Test]
+        [Fact]
         public void ShouldThrowInvalidOperationExceptionIfTagIsWrong()
         {
             var tagServiceMock = new Mock<ITagService>();

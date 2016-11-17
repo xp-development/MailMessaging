@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
 using MailMessaging.Plain.Contracts;
 using MailMessaging.Plain.Contracts.Commands;
-using MetroLog;
 
 namespace MailMessaging.Plain.Core
 {
@@ -21,7 +21,7 @@ namespace MailMessaging.Plain.Core
         {
             try
             {
-                _logger.Info("Connect mail server '{0}:{1}'. UseTls={2}", _account.Server, _account.Port, _account.UseTls);
+                Debug.WriteLine("Connect mail server '{0}:{1}'. UseTls={2}", _account.Server, _account.Port, _account.UseTls);
                 await _tcpClient.Connect(_account.Server, _account.Port, _account.UseTls);
 
                 IsConnected = (await ReadData()).StartsWith("* OK");
@@ -29,7 +29,7 @@ namespace MailMessaging.Plain.Core
             }
             catch (Exception exception)
             {
-                _logger.Warn("Cannot connect server!", exception);
+                Debug.WriteLine("Cannot connect server! " + exception);
                 return ConnectResult.UnknownHost;
             }
         }
@@ -40,7 +40,7 @@ namespace MailMessaging.Plain.Core
         {
             var request = message.Request;
 
-            _logger.Info("Send: " + request);
+            Debug.WriteLine("Send: " + request);
             await _tcpClient.WriteStringAsync(request);
             return message.ParseResponse(await ReadData());
         }
@@ -61,13 +61,11 @@ namespace MailMessaging.Plain.Core
             }
 
             var receivedMessage = builder.ToString();
-            _logger.Info("Receive: " + receivedMessage);
+            Debug.WriteLine("Receive: " + receivedMessage);
             return receivedMessage;
         }
 
         private readonly IAccount _account;
         private readonly ITcpClient _tcpClient;
-
-        private static readonly ILogger _logger = LogManagerFactory.DefaultLogManager.GetLogger<MailMessenger>();
     }
 }

@@ -2,16 +2,16 @@
 using MailMessaging.Plain.Contracts.Services;
 using MailMessaging.Plain.Core.Commands;
 using Moq;
-using NUnit.Framework;
+using Xunit;
 
 namespace MailMessaging.Plain.Net.UnitTest._Commands._ListCommand
 {
-    [TestFixture]
     public class Request
     {
-        [TestCase("", "")]
-        [TestCase("", "*")]
-        [TestCase("INBOX", "*")]
+        [Theory]
+        [InlineData("", "")]
+        [InlineData("", "*")]
+        [InlineData("INBOX", "*")]
         public void ShouldCreateListRequest(string referenceName, string mailboxName)
         {
             var tagServiceMock = new Mock<ITagService>();
@@ -22,7 +22,7 @@ namespace MailMessaging.Plain.Net.UnitTest._Commands._ListCommand
             command.Request.Should().Be(string.Format("A0001 LIST \"{0}\" \"{1}\"\r\n", referenceName, mailboxName));
         }
 
-        [Test]
+        [Fact]
         public void ShouldCreateFullListCommandRequest()
         {
             var tagServiceMock = new Mock<ITagService>();

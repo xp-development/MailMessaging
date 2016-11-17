@@ -2,14 +2,13 @@
 using MailMessaging.Plain.Contracts.Services;
 using MailMessaging.Plain.Core.Commands;
 using Moq;
-using NUnit.Framework;
+using Xunit;
 
 namespace MailMessaging.Plain.Net.UnitTest._Commands._LoginCommand
 {
-    [TestFixture]
     public class Request
     {
-        [Test]
+        [Fact]
         public void Using()
         {
             var tagServiceMock = new Mock<ITagService>();

@@ -5,14 +5,13 @@ using FluentAssertions;
 using MailMessaging.Plain.Contracts;
 using MailMessaging.Plain.Core;
 using Moq;
-using NUnit.Framework;
+using Xunit;
 
 namespace MailMessaging.Plain.Net.UnitTest._MailMessenger
 {
-    [TestFixture]
     public class Connect
     {
-        [Test]
+        [Fact]
         public void ShouldConnectServer()
         {
             var readAsyncMessages = new Queue<string>();
@@ -28,7 +27,7 @@ namespace MailMessaging.Plain.Net.UnitTest._MailMessenger
             messenger.Connect().Result.Should().Be(ConnectResult.Connected);
         }
 
-        [Test]
+        [Fact]
         public void ShouldNotConnectIfHostNameIsWrong()
         {
             var account = new Account("invalid.server", 42, true);
@@ -39,7 +38,7 @@ namespace MailMessaging.Plain.Net.UnitTest._MailMessenger
             messenger.Connect().Result.Should().Be(ConnectResult.UnknownHost);
         }
 
-        [Test]
+        [Fact]
         public void ShouldNotConnectIfTlsIsRequiredButNotUsed()
         {
             var account = new Account("valid.server", 42, false);
