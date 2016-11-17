@@ -23,7 +23,7 @@ namespace MailMessaging.Plain.IntegrationTest
         {
             var listener = (System.Net.Sockets.TcpListener) asyncResult.AsyncState;
 
-            _listener.BeginAcceptTcpClient(OnAcceptTcpClient, _listener);
+            listener.BeginAcceptTcpClient(OnAcceptTcpClient, listener);
             var tcpClient = listener.EndAcceptTcpClient(asyncResult);
 
             var stream = _useTls ? (Stream)new SslStream(tcpClient.GetStream()) : tcpClient.GetStream();
