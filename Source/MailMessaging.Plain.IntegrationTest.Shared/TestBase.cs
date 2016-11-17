@@ -46,7 +46,7 @@ namespace MailMessaging.Plain.IntegrationTest
 
 #if WinRT
             var assembly = typeof (TcpListener).GetTypeInfo().Assembly;
-#elif NET
+#else
             var assembly = typeof (TcpListener).Assembly;
 #endif
 
