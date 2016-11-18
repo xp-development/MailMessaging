@@ -25,6 +25,6 @@ test:
   assemblies: MailMessaging.Plain.Net.UnitTest
   
 artifacts:
-  - path: '**\MailMessaging.Plain.Contracts*.nupkg
+  - path: '**\MailMessaging.Plain.Contracts*.nupkg'
     name: MailMessaging.Plain.Contracts.$(appveyor_build_version).nupkg
 	type: nupkg
