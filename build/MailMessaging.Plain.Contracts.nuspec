@@ -14,6 +14,6 @@
         <tags>MailMessaging imap</tags>
     </metadata>
     <files>
-        <file src="../Source/MailMessaging.Plain.Contracts/bin/$Configuration$/MailMessaging.Plain.Contracts.dll" target="lib\portable-net45+wpa81" />
+        <file src="../Source/MailMessaging.Plain.Contracts/bin/$Configuration$/MailMessaging.Plain.Contracts.dll" target="lib\portable-net451+wpa81+win81+Xamarin.iOS+Xamarin.Android+Xamarin.iOSClassic" />
     </files>
 </package>
