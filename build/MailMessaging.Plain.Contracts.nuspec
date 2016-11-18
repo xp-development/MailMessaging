@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+    <metadata>
+        <id>MailMessaging.Plain.Contracts</id>
+        <version>$Version$</version>
+        <title>MailMessaging.Plain.Contracts</title>
+        <description>MailMessaging.Plain.Contracts</description>
+        <summary />
+        <releaseNotes />
+        <authors>jan-schubert</authors>
+        <licenseUrl>https://github.com/jan-schubert/MailMessaging/blob/master/LICENSE.txt</licenseUrl>
+        <projectUrl>https://github.com/jan-schubert/MailMessaging/</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <tags>MailMessaging imap</tags>
+    </metadata>
+    <files>
+        <file src="Source/MailMessaging.Plain.Contracts/bin/$Configuration$/MailMessaging.Plain.Contracts.dll" target="lib\portable-net45+wpa81" />
+    </files>
+</package>
