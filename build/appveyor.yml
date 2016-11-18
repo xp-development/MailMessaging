@@ -12,7 +12,7 @@ build:
   verbosity: minimal
 
 after_build:
-  - cmd: nuget pack MailMessaging.Plain.Contracts.nuspec -Properties Configuration=%configuration% -Version %appveyor_build_version%
+  - cmd: nuget pack build/MailMessaging.Plain.Contracts.nuspec -Properties Configuration=%configuration% -Version %appveyor_build_version%
 
 assembly_info:
   patch: true
