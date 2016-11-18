@@ -26,5 +26,4 @@ test:
   
 artifacts:
   - path: '**\MailMessaging.Plain.Contracts*.nupkg'
-    name: MailMessaging.Plain.Contracts.$(appveyor_build_version).nupkg
-	type: nupkg
+    name: MailMessaging.Plain.Contracts.nupkg
