@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+    <metadata>
+        <id>MailMessaging.Plain.Net</id>
+        <version>$Version$</version>
+        <title>MailMessaging.Plain.Net</title>
+        <description>MailMessaging.Plain.Net</description>
+        <summary />
+        <releaseNotes />
+        <authors>jan-schubert</authors>
+        <licenseUrl>https://github.com/jan-schubert/MailMessaging/blob/master/LICENSE.txt</licenseUrl>
+        <projectUrl>https://github.com/jan-schubert/MailMessaging/</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <tags>MailMessaging imap</tags>
+		<dependencies>
+            <dependency id="MailMessaging.Plain.Contracts" version="$Version$" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="../Source/Net/MailMessaging.Plain.Net/bin/$Configuration$/MailMessaging.Plain.Net.dll" target="lib\net45" />
+    </files>
+</package>
