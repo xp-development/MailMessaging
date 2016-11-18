@@ -27,3 +27,10 @@ test:
 artifacts:
   - path: '**\MailMessaging.Plain.Contracts*.nupkg'
     name: MailMessaging.Plain.Contracts.nupkg
+
+deploy:
+  provider: NuGet
+  api_key:
+    secure: EEzMZXyGYmDBGcZfcOsS1QB+8iHT760Kg/ML6l0jHL+wxqMaZYqWSztF0VlpyBCL
+  skip_symbols: true
+  artifact: MailMessaging.Plain.Contracts.nupkg
