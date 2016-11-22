@@ -9,10 +9,7 @@ namespace MailMessaging.Plain.Core.Commands
 {
     public class ListCommand : CommandBase<ListCommand, ListCommand.ListResponse>
     {
-        public override string Request
-        {
-            get { return PrepareCommand(string.Format("LIST \"{0}\" \"{1}\"", _referenceName, _mailboxName)); }
-        }
+        public override string Request => PrepareCommand($"LIST \"{_referenceName}\" \"{_mailboxName}\"");
 
         public ListCommand(ITagService tagService, string referenceName, string mailboxName)
             : base(tagService)
@@ -55,7 +52,7 @@ namespace MailMessaging.Plain.Core.Commands
 
                 for (var i = 0; i < lines.Length -1; ++i)
                 {
-                    var match = Regex.Match(lines[i], @"^\*\sLIST\s+\((.*?)\)\s+\""(.*?)\""\s+(.*?)$");
+                    var match = Regex.Match(lines[i], @"^\*\sLIST\s+\((.*?)\)\s+\""(.*?)\""\s+\""?(.*?)\""?$");
 
                     if (!match.Success)
                         throw new NotSupportedException("Invalid response for LIST command: " + Environment.NewLine + responseMessage);

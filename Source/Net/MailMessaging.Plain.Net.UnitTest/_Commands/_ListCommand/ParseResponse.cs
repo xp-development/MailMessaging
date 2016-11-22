@@ -98,7 +98,7 @@ namespace MailMessaging.Plain.Net.UnitTest._Commands._ListCommand
         public void ShouldParseResponseWithoutFolderAttributes()
         {
             const string responseMessage = "* LIST () \"/\" INBOX\r\n" +
-                                          "A0001 OK LIST completed\r\n";
+                                           "A0001 OK LIST completed\r\n";
 
             var tagServiceMock = new Mock<ITagService>();
             tagServiceMock.Setup(item => item.GetNextTag()).Returns("A0001");
@@ -112,6 +112,29 @@ namespace MailMessaging.Plain.Net.UnitTest._Commands._ListCommand
             listFolders[0].Attributes.Count().Should().Be(0);
             listFolders[0].HierarchyDelimiter.Should().Be("/");
             listFolders[0].Name.Should().Be("INBOX");
+        }
+
+        [Fact]
+        public void ShouldParseFolderWithWhiteSpaces()
+        {
+            const string responseMessage = "* LIST (\\Drafts \\NoInferiors) \"/\" \"Folder With WhiteSpaces\"\r\n" +
+                                           "A0001 OK LIST completed\r\n";
+
+            var tagServiceMock = new Mock<ITagService>();
+            tagServiceMock.Setup(item => item.GetNextTag()).Returns("A0001");
+            var command = new ListCommand(tagServiceMock.Object, "", "*");
+
+            var response = command.ParseResponse(responseMessage);
+
+            response.Result.Should().Be(ResponseResult.OK);
+            var listFolders = response.Folders.ToArray();
+            listFolders.Length.Should().Be(1);
+
+            listFolders[0].Attributes.Count().Should().Be(2);
+            listFolders[0].Attributes.ElementAt(0).Should().Be("\\Drafts");
+            listFolders[0].Attributes.ElementAt(1).Should().Be("\\NoInferiors");
+            listFolders[0].HierarchyDelimiter.Should().Be("/");
+            listFolders[0].Name.Should().Be("Folder With WhiteSpaces");
         }
     }
 }

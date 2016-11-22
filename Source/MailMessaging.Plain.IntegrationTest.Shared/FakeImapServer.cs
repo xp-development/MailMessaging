@@ -56,7 +56,7 @@ namespace MailMessaging.Plain.IntegrationTest
                     continue;
                 }
 
-                if (command == "LOGIN" && response.StartsWith(string.Format("{0} OK", tag)))
+                if (command == "LOGIN" && response.StartsWith($"{tag} OK"))
                     _isLoggedIn = true;
 
                 if (!_isLoggedIn && command != "LOGIN")

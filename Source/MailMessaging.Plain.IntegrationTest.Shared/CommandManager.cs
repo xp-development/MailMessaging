@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 
 namespace MailMessaging.Plain.IntegrationTest
 {
@@ -9,12 +10,12 @@ namespace MailMessaging.Plain.IntegrationTest
             _fakeAccount = fakeAccount;
         }
 
-        public string Process(string tag, string command, string commandArgs)
+        public string Process(string tag, string command, string commandArgumentString)
         {
             if (command.Equals("LOGIN"))
             {
-                var username = commandArgs.Split(' ')[0];
-                var password = commandArgs.Split(' ')[1].Trim();
+                var username = GetNextArgument(ref commandArgumentString);
+                var password = GetNextArgument(ref commandArgumentString);
 
                 if (username == _fakeAccount.UserName && password == _fakeAccount.Password)
                     return BuildResponse(tag, "OK " + command + " completed");
@@ -24,8 +25,8 @@ namespace MailMessaging.Plain.IntegrationTest
 
             if (command.Equals("LIST"))
             {
-                var referenceName = RemoveQuotes(commandArgs.Split(' ')[0]);
-                var mailboxName = RemoveQuotes(commandArgs.Split(' ')[1].Trim());
+                var referenceName = GetNextArgument(ref commandArgumentString);
+                var mailboxName = GetNextArgument(ref commandArgumentString);
                 var path = referenceName + mailboxName;
 
                 var folders = new StringBuilder();
@@ -38,22 +39,40 @@ namespace MailMessaging.Plain.IntegrationTest
             return BuildResponse(tag, "BAD unknown command");
         }
 
-        private static string RemoveQuotes(string name)
+        private static string GetNextArgument(ref string commandArgumentString)
         {
-            if (name.StartsWith("\"") && name.EndsWith("\""))
-                name = name.Substring(1, name.Length - 2);
+            if(string.IsNullOrWhiteSpace(commandArgumentString))
+                return "";
 
-            return name;
+            commandArgumentString = commandArgumentString.Trim();
+
+            if (commandArgumentString.StartsWith("\""))
+            {
+                var indexOfNextQuote = commandArgumentString.IndexOf("\"", 1, StringComparison.Ordinal);
+                var argument = commandArgumentString.Substring(1, indexOfNextQuote - 1);
+                commandArgumentString = commandArgumentString.Substring(indexOfNextQuote + 1);
+                return argument;
+            }
+
+            if(commandArgumentString.Contains(" "))
+            {
+                var indexOfNextQuote = commandArgumentString.IndexOf(" ", StringComparison.Ordinal);
+                var argument = commandArgumentString.Substring(0, indexOfNextQuote);
+                commandArgumentString = commandArgumentString.Substring(indexOfNextQuote + 1);
+                return argument;
+            }
+
+            return commandArgumentString.TrimEnd();
         }
 
         private static void AddMailboxFolder(string path, StringBuilder folders, MailFolder mailFolder, string parentName = "")
         {
-            var mailboxFolderName = string.Format("{0}{1}/", parentName, mailFolder.Name);
+            var mailboxFolderName = $"{parentName}{mailFolder.Name}/";
             var mailboxFolderNameWithoutSlash = mailboxFolderName.TrimEnd('/');
 
-            if (path == "/*" || path.TrimEnd('/') == mailboxFolderNameWithoutSlash || (path.EndsWith("*") && mailboxFolderName.StartsWith(path.TrimEnd('*'))))
+            if (path == "/*" || path.TrimEnd('/') == mailboxFolderNameWithoutSlash || path.EndsWith("*") && mailboxFolderName.StartsWith(path.TrimEnd('*')))
             {
-                folders.AppendFormat("* LIST ({0}) \"/\" {1}\r\n", string.Join(" ", mailFolder.Attributes), mailboxFolderNameWithoutSlash);
+                folders.AppendFormat("* LIST ({0}) \"/\" {1}\r\n", string.Join(" ", mailFolder.Attributes), mailboxFolderNameWithoutSlash.Contains(" ") ? $"\"{mailboxFolderNameWithoutSlash}\"" : mailboxFolderNameWithoutSlash);
             }
 
             foreach (var folder in mailFolder.MailFolders)
@@ -64,8 +83,8 @@ namespace MailMessaging.Plain.IntegrationTest
 
         public static string BuildResponse(string tag, string message, string informations = "")
         {
-            var response = string.Format("{0} {1}\r\n", tag, message);
-            return !string.IsNullOrEmpty(informations) ? string.Format("{0}\r\n{1}", informations, response) : response;
+            var response = $"{tag} {message}\r\n";
+            return !string.IsNullOrEmpty(informations) ? $"{informations}\r\n{response}" : response;
         }
 
         private readonly FakeAccount _fakeAccount;

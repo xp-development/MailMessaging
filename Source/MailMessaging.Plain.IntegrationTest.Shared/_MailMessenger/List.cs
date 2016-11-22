@@ -46,6 +46,25 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
         }
 
         [Fact]
+        public void ShouldReceiveFolderWithSpaces()
+        {
+            var messenger = GetLoggedInMailMessenger();
+
+            const string folderName = "Folder with spaces";
+            var response = messenger.Send(new ListCommand(TagService, folderName, "*")).Result;
+
+            response.Result.Should().Be(ResponseResult.OK);
+            var folders = response.Folders.ToArray();
+
+            var listFolder = folders.SingleOrDefault(item => item.Name == folderName);
+            listFolder.Should().NotBeNull($"No '{folderName}' folder found!");
+            listFolder.Name.Should().Be(folderName);
+            listFolder.HierarchyDelimiter.Should().Be("/");
+            listFolder.Attributes.Count().Should().Be(1);
+            listFolder.Attributes.ElementAt(0).Should().Be(@"\NoInferiors");
+        }
+
+        [Fact]
         public void ShouldReceiveNoResponseIfLoginDataAreInvalid()
         {
             var account = new Account(TestServer, TestPort, false);
@@ -67,7 +86,7 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
             var listFolder = listFolders.SingleOrDefault(item => item.Name == folderName);
             if (checkDraftFolder)
             {
-                listFolder.Should().NotBeNull(string.Format("No '{0}' folder found!", folderName));
+                listFolder.Should().NotBeNull($"No '{folderName}' folder found!");
                 listFolder.Name.Should().Be(folderName);
                 listFolder.HierarchyDelimiter.Should().Be("/");
                 listFolder.Attributes.Count().Should().Be(2);
@@ -75,7 +94,7 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
                 listFolder.Attributes.ElementAt(1).Should().Be(@"\NoInferiors");
             }
             else
-                listFolder.Should().BeNull(string.Format("'{0}' folder was found, but not expected!", folderName));
+                listFolder.Should().BeNull($"'{folderName}' folder was found, but not expected!");
         }
 
         private static void CheckTrashFolder(bool checkTrashFolder, IEnumerable<ListCommand.ListFolder> listFolders)
@@ -84,7 +103,7 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
             var listFolder = listFolders.SingleOrDefault(item => item.Name == folderName);
             if (checkTrashFolder)
             {
-                listFolder.Should().NotBeNull(string.Format("No '{0}' folder found!", folderName));
+                listFolder.Should().NotBeNull($"No '{folderName}' folder found!");
                 listFolder.Name.Should().Be(folderName);
                 listFolder.HierarchyDelimiter.Should().Be("/");
                 listFolder.Attributes.Count().Should().Be(2);
@@ -92,7 +111,7 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
                 listFolder.Attributes.ElementAt(1).Should().Be(@"\HasNoChildren");
             }
             else
-                listFolder.Should().BeNull(string.Format("'{0}' folder was found, but not expected!", folderName));
+                listFolder.Should().BeNull($"'{folderName}' folder was found, but not expected!");
         }
 
         private static void CheckSentFolder(bool checkSentFolder, IEnumerable<ListCommand.ListFolder> listFolders)
@@ -101,7 +120,7 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
             var listFolder = listFolders.SingleOrDefault(item => item.Name == folderName);
             if (checkSentFolder)
             {
-                listFolder.Should().NotBeNull(string.Format("No '{0}' folder found!", folderName));
+                listFolder.Should().NotBeNull($"No '{folderName}' folder found!");
                 listFolder.Name.Should().Be(folderName);
                 listFolder.HierarchyDelimiter.Should().Be("/");
                 listFolder.Attributes.Count().Should().Be(2);
@@ -109,7 +128,7 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
                 listFolder.Attributes.ElementAt(1).Should().Be(@"\NoInferiors");
             }
             else
-                listFolder.Should().BeNull(string.Format("'{0}' folder was found, but not expected!", folderName));
+                listFolder.Should().BeNull($"'{folderName}' folder was found, but not expected!");
         }
 
         private static void CheckInboxFolder(bool checkInboxFolder, IEnumerable<ListCommand.ListFolder> listFolders)
@@ -118,14 +137,14 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
             var listFolder = listFolders.SingleOrDefault(item => item.Name == folderName);
             if (checkInboxFolder)
             {
-                listFolder.Should().NotBeNull(string.Format("No '{0}' folder found!", folderName));
+                listFolder.Should().NotBeNull($"No '{folderName}' folder found!");
                 listFolder.Name.Should().Be(folderName);
                 listFolder.HierarchyDelimiter.Should().Be("/");
                 listFolder.Attributes.Count().Should().Be(1);
                 listFolder.Attributes.ElementAt(0).Should().Be(@"\HasChildren");
             }
             else
-                listFolder.Should().BeNull(string.Format("'{0}' folder was found, but not expected!", folderName));
+                listFolder.Should().BeNull($"'{folderName}' folder was found, but not expected!");
         }
 
         private static void CheckSubfolderFolder(bool checkSubfolderFolder, IEnumerable<ListCommand.ListFolder> listFolders)
@@ -134,14 +153,14 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
             var listFolder = listFolders.SingleOrDefault(item => item.Name == folderName);
             if (checkSubfolderFolder)
             {
-                listFolder.Should().NotBeNull(string.Format("No '{0}' folder found!", folderName));
+                listFolder.Should().NotBeNull($"No '{folderName}' folder found!");
                 listFolder.Name.Should().Be(folderName);
                 listFolder.HierarchyDelimiter.Should().Be("/");
                 listFolder.Attributes.Count().Should().Be(1);
                 listFolder.Attributes.ElementAt(0).Should().Be(@"\HasChildren");
             }
             else
-                listFolder.Should().BeNull(string.Format("'{0}' folder was found, but not expected!", folderName));
+                listFolder.Should().BeNull($"'{folderName}' folder was found, but not expected!");
         }
 
         private static void CheckSubsubfolderFolder(bool checkSubsubfolderFolder, IEnumerable<ListCommand.ListFolder> listFolders)
@@ -150,14 +169,14 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
             var listFolder = listFolders.SingleOrDefault(item => item.Name == folderName);
             if (checkSubsubfolderFolder)
             {
-                listFolder.Should().NotBeNull(string.Format("No '{0}' folder found!", folderName));
+                listFolder.Should().NotBeNull($"No '{folderName}' folder found!");
                 listFolder.Name.Should().Be(folderName);
                 listFolder.HierarchyDelimiter.Should().Be("/");
                 listFolder.Attributes.Count().Should().Be(1);
                 listFolder.Attributes.ElementAt(0).Should().Be(@"\NoInferiors");
             }
             else
-                listFolder.Should().BeNull(string.Format("'{0}' folder was found, but not expected!", folderName));
+                listFolder.Should().BeNull($"'{folderName}' folder was found, but not expected!");
         }
 
         private static void CheckOutboxFolder(bool checkOutboxFolder, IEnumerable<ListCommand.ListFolder> listFolders)
@@ -166,14 +185,14 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
             var listFolder = listFolders.SingleOrDefault(item => item.Name == folderName);
             if (checkOutboxFolder)
             {
-                listFolder.Should().NotBeNull(string.Format("No '{0}' folder found!", folderName));
+                listFolder.Should().NotBeNull($"No '{folderName}' folder found!");
                 listFolder.Name.Should().Be(folderName);
                 listFolder.HierarchyDelimiter.Should().Be("/");
                 listFolder.Attributes.Count().Should().Be(1);
                 listFolder.Attributes.ElementAt(0).Should().Be(@"\NoInferiors");
             }
             else
-                listFolder.Should().BeNull(string.Format("'{0}' folder was found, but not expected!", folderName));
+                listFolder.Should().BeNull($"'{folderName}' folder was found, but not expected!");
         }
 
         private static void CheckJunkFolder(bool checkJunkFolder, IEnumerable<ListCommand.ListFolder> listFolders)
@@ -182,7 +201,7 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
             var listFolder = listFolders.SingleOrDefault(item => item.Name == folderName);
             if (checkJunkFolder)
             {
-                listFolder.Should().NotBeNull(string.Format("No '{0}' folder found!", folderName));
+                listFolder.Should().NotBeNull($"No '{folderName}' folder found!");
                 listFolder.Name.Should().Be(folderName);
                 listFolder.HierarchyDelimiter.Should().Be("/");
                 listFolder.Attributes.Count().Should().Be(2);
@@ -190,7 +209,7 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
                 listFolder.Attributes.ElementAt(1).Should().Be(@"\NoInferiors");
             }
             else
-                listFolder.Should().BeNull(string.Format("'{0}' folder was found, but not expected!", folderName));
+                listFolder.Should().BeNull($"'{folderName}' folder was found, but not expected!");
         }
     }
 }
