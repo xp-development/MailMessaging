@@ -15,10 +15,10 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
             var account = new Account(TestServer, TestPort, false);
 
             var tcpClient = new TcpClient();
-            var messenger = new MailMessenger(account, tcpClient);
-            messenger.Connect().Result.Should().Be(ConnectResult.Connected);
+            var messenger = new MailMessenger(tcpClient);
+            messenger.ConnectAsync(account).Result.Should().Be(ConnectResult.Connected);
 
-            var response = messenger.Send(new LoginCommand(TagService, "validUserName", "validPassword")).Result;
+            var response = messenger.SendAsync(new LoginCommand(TagService, "validUserName", "validPassword")).Result;
 
             response.Result.Should().Be(ResponseResult.OK);
             response.Message.Should().Be("A0001 OK LOGIN completed\r\n");
@@ -33,10 +33,10 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
             var account = new Account(TestServer, TestPort, false);
 
             var tcpClient = new TcpClient();
-            var messenger = new MailMessenger(account, tcpClient);
-            messenger.Connect().Result.Should().Be(ConnectResult.Connected);
+            var messenger = new MailMessenger(tcpClient);
+            messenger.ConnectAsync(account).Result.Should().Be(ConnectResult.Connected);
 
-            var response = messenger.Send(new LoginCommand(TagService, userName, invalidpassword)).Result;
+            var response = messenger.SendAsync(new LoginCommand(TagService, userName, invalidpassword)).Result;
 
             response.Result.Should().Be(ResponseResult.NO);
             response.Message.Should().Be("A0001 NO authentication failed\r\n");

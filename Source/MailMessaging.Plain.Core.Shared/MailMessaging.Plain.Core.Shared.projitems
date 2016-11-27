@@ -16,5 +16,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Commands\ResponseBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MailMessenger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\TagService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Text\ModifiedUTF7.cs" />
   </ItemGroup>
 </Project>

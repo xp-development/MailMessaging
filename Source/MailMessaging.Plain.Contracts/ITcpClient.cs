@@ -1,10 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace MailMessaging.Plain.Contracts
 {
-    public interface ITcpClient
+    public interface ITcpClient : IDisposable
     {
-        Task Connect(string hostName, int port, bool useTls);
+        Task ConnectAsync(string hostName, int port, bool useTls);
         void Disconnect();
         Task WriteStringAsync(string message);
         Task<string> ReadAsync();

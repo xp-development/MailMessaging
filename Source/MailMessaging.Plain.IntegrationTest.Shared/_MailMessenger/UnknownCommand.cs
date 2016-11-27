@@ -15,10 +15,10 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
             var account = new Account(TestServer, TestPort, false);
 
             var tcpClient = new TcpClient();
-            var messenger = new MailMessenger(account, tcpClient);
-            messenger.Connect().Result.Should().Be(ConnectResult.Connected);
+            var messenger = new MailMessenger(tcpClient);
+            messenger.ConnectAsync(account).Result.Should().Be(ConnectResult.Connected);
 
-            var response = messenger.Send(new TestCommands.UnknownCommand(TagService)).Result;
+            var response = messenger.SendAsync(new TestCommands.UnknownCommand(TagService)).Result;
 
             response.Result.Should().Be(ResponseResult.BAD);
             response.Message.Should().Be("A0001 BAD unknown command\r\n");

@@ -30,7 +30,7 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
         {
             var messenger = GetLoggedInMailMessenger();
 
-            var response = messenger.Send(new ListCommand(TagService, referenceName, mailboxName)).Result;
+            var response = messenger.SendAsync(new ListCommand(TagService, referenceName, mailboxName)).Result;
 
             response.Result.Should().Be(ResponseResult.OK);
             var folders = response.Folders.ToArray();
@@ -51,7 +51,7 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
             var messenger = GetLoggedInMailMessenger();
 
             const string folderName = "Folder with spaces";
-            var response = messenger.Send(new ListCommand(TagService, folderName, "*")).Result;
+            var response = messenger.SendAsync(new ListCommand(TagService, folderName, "*")).Result;
 
             response.Result.Should().Be(ResponseResult.OK);
             var folders = response.Folders.ToArray();
@@ -70,10 +70,10 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
             var account = new Account(TestServer, TestPort, false);
 
             var tcpClient = new TcpClient();
-            var messenger = new MailMessenger(account, tcpClient);
-            messenger.Connect().Result.Should().Be(ConnectResult.Connected);
+            var messenger = new MailMessenger(tcpClient);
+            messenger.ConnectAsync(account).Result.Should().Be(ConnectResult.Connected);
 
-            var response = messenger.Send(new ListCommand(TagService, "", "*")).Result;
+            var response = messenger.SendAsync(new ListCommand(TagService, "", "*")).Result;
 
             response.Result.Should().Be(ResponseResult.NO);
             response.Message.Should().Be("A0001 NO please login first\r\n");

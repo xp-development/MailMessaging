@@ -19,6 +19,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "MailMessaging.Plain.Core.Sh
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plain", "Plain", "{6F2575B1-C882-4606-8835-4224CD4E5FFC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{E7BA012C-1C7F-4657-96B1-68FE498C3517}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		MailMessaging.Plain.Core.Shared\MailMessaging.Plain.Core.Shared.projitems*{63c3d78a-2708-4420-9af0-6bc917523113}*SharedItemsImports = 4

@@ -33,10 +33,10 @@ namespace MailMessaging.Plain.IntegrationTest
             var account = new Account(TestServer, TestPort, false);
 
             var tcpClient = new TcpClient();
-            var messenger = new MailMessenger(account, tcpClient);
-            messenger.Connect().Result.Should().Be(ConnectResult.Connected);
+            var messenger = new MailMessenger(tcpClient);
+            messenger.ConnectAsync(account).Result.Should().Be(ConnectResult.Connected);
 
-            messenger.Send(new LoginCommand(TagService, "validUserName", "validPassword")).Result.Result.Should().Be(ResponseResult.OK);
+            messenger.SendAsync(new LoginCommand(TagService, "validUserName", "validPassword")).Result.Result.Should().Be(ResponseResult.OK);
             return messenger;
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
 using MailMessaging.Plain.Contracts.Commands;
@@ -72,6 +73,7 @@ namespace MailMessaging.Plain.Core.Commands
             }
         }
 
+        [DebuggerDisplay("{HierarchyDelimiter}{Name}")]
         public class ListFolder
         {
             public IEnumerable<string> Attributes { get; private set; }

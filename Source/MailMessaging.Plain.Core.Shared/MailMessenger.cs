@@ -11,18 +11,17 @@ namespace MailMessaging.Plain.Core
     {
         public bool IsConnected { get; private set; }
 
-        public MailMessenger(IAccount account, ITcpClient tcpClient)
+        public MailMessenger(ITcpClient tcpClient)
         {
-            _account = account;
             _tcpClient = tcpClient;
         }
 
-        public async Task<ConnectResult> Connect()
+        public async Task<ConnectResult> ConnectAsync(IAccount account)
         {
             try
             {
-                Debug.WriteLine("Connect mail server '{0}:{1}'. UseTls={2}", _account.Server, _account.Port, _account.UseTls);
-                await _tcpClient.Connect(_account.Server, _account.Port, _account.UseTls);
+                Debug.WriteLine("Connect mail server '{0}:{1}'. UseTls={2}", account.Server, account.Port, account.UseTls);
+                await _tcpClient.ConnectAsync(account.Server, account.Port, account.UseTls);
 
                 IsConnected = (await ReadData()).StartsWith("* OK");
                 return IsConnected ? ConnectResult.Connected : ConnectResult.UnknownHost;
@@ -34,7 +33,7 @@ namespace MailMessaging.Plain.Core
             }
         }
 
-        public async Task<TResponse> Send<TRequest, TResponse>(ICommand<TRequest, TResponse> message)
+        public async Task<TResponse> SendAsync<TRequest, TResponse>(ICommand<TRequest, TResponse> message)
             where TRequest : IRequest
             where TResponse : IResponse
         {
@@ -48,8 +47,7 @@ namespace MailMessaging.Plain.Core
         private async Task<string> ReadData()
         {
             var response = await _tcpClient.ReadAsync();
-            var builder = new StringBuilder();
-            builder.Append(response);
+            var builder = new StringBuilder(response);
 
             while (!string.IsNullOrEmpty(response))
             {
@@ -65,7 +63,6 @@ namespace MailMessaging.Plain.Core
             return receivedMessage;
         }
 
-        private readonly IAccount _account;
         private readonly ITcpClient _tcpClient;
     }
 }

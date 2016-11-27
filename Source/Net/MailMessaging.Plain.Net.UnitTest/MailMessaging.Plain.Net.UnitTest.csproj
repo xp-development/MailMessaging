@@ -87,7 +87,9 @@
     <Compile Include="_Commands\_ListCommand\Request.cs" />
     <Compile Include="_Commands\_LoginCommand\ParseResponse.cs" />
     <Compile Include="_Commands\_LoginCommand\Request.cs" />
-    <Compile Include="_MailMessenger\Connect.cs" />
+    <Compile Include="_MailMessenger\ConnectAsync.cs" />
+    <Compile Include="_Text\_ModifiedUTF7\Decode.cs" />
+    <Compile Include="_Text\_ModifiedUTF7\Encode.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\MailMessaging.Plain.Contracts\MailMessaging.Plain.Contracts.csproj">

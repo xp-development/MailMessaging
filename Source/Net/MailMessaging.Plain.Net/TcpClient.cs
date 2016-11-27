@@ -1,3 +1,4 @@
+using System.ComponentModel.Design;
 using System.IO;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
@@ -9,7 +10,7 @@ namespace MailMessaging.Plain.Core
 {
     public class TcpClient : ITcpClient
     {
-        public async Task Connect(string hostName, int port, bool useTls)
+        public async Task ConnectAsync(string hostName, int port, bool useTls)
         {
             _client = new System.Net.Sockets.TcpClient();
             await _client.ConnectAsync(hostName, port);
@@ -34,7 +35,12 @@ namespace MailMessaging.Plain.Core
 
         public void Disconnect()
         {
-            _client.Close();
+            _client?.Close();
+
+            _streamWriter = null;
+            _streamReader = null;
+            _stream = null;
+            _client = null;
         }
 
         public async Task WriteStringAsync(string message)
@@ -52,6 +58,11 @@ namespace MailMessaging.Plain.Core
             builder.Append(buffer, 0, length);
 
             return builder.ToString();
+        }
+
+        public void Dispose()
+        {
+            Disconnect();
         }
 
         private System.Net.Sockets.TcpClient _client;

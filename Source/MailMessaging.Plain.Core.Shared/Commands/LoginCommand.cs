@@ -7,10 +7,7 @@ namespace MailMessaging.Plain.Core.Commands
 {
     public class LoginCommand : CommandBase<LoginCommand, LoginCommand.LoginResponse>
     {
-        public override string Request
-        {
-            get { return PrepareCommand(string.Format("LOGIN {0} {1}", _userName, _password)); }
-        }
+        public override string Request => PrepareCommand($"LOGIN {_userName} {_password}");
 
         public LoginCommand(ITagService tagService, string userName, string password)
             : base(tagService)
