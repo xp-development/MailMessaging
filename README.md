@@ -9,7 +9,6 @@ Many thanks to the following projects:
 
 <ul>
   <li>GitHub</li>
-  <li>NUnit</li>
+  <li>xUnit</li>
   <li>Moq</li>
-  <li>MetroLog</li>
 </ul>
