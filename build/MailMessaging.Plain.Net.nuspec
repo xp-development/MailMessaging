@@ -13,7 +13,7 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <tags>MailMessaging imap</tags>
 		<dependencies>
-            <dependency id="MailMessaging.Plain.Contracts" version="$Version$" />
+            <dependency id="MailMessaging.Plain.Contracts" version="[$Version$]" />
         </dependencies>
     </metadata>
     <files>
