@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using MailMessaging.Plain.Contracts.Commands;
-using MailMessaging.Plain.Core.Commands;
 
 namespace MailMessaging.Plain.IntegrationTest.Commands
 {

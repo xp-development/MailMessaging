@@ -46,9 +46,13 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\IRequest.cs" />
     <Compile Include="Commands\IResponse.cs" />
+    <Compile Include="Commands\ListCommand.cs" />
+    <Compile Include="Commands\LoginCommand.cs" />
+    <Compile Include="Commands\ResponseBase.cs" />
     <Compile Include="Commands\ResponseResult.cs" />
     <Compile Include="ConnectResult.cs" />
     <Compile Include="IAccount.cs" />

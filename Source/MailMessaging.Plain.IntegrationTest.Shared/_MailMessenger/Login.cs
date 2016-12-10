@@ -2,7 +2,6 @@
 using MailMessaging.Plain.Contracts;
 using MailMessaging.Plain.Contracts.Commands;
 using MailMessaging.Plain.Core;
-using MailMessaging.Plain.Core.Commands;
 using Xunit;
 
 namespace MailMessaging.Plain.IntegrationTest._MailMessenger

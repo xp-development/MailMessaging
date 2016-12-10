@@ -2,7 +2,6 @@
 using FluentAssertions;
 using MailMessaging.Plain.Contracts.Commands;
 using MailMessaging.Plain.Contracts.Services;
-using MailMessaging.Plain.Core.Commands;
 using Moq;
 using Xunit;
 

@@ -6,7 +6,6 @@ using MailMessaging.Plain.Contracts.Commands;
 using MailMessaging.Plain.Contracts.Services;
 using MailMessaging.Plain.Core;
 using MailMessaging.Plain.Core.Services;
-using MailMessaging.Plain.Core.Commands;
 
 namespace MailMessaging.Plain.IntegrationTest
 {
