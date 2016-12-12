@@ -4,9 +4,9 @@ namespace MailMessaging.Plain.Core
 {
     public class Account : IAccount
     {
-        public string Server { get; private set; }
-        public int Port { get; private set; }
-        public bool UseTls { get; private set; }
+        public string Server { get; }
+        public int Port { get; }
+        public bool UseTls { get; }
 
         public Account(string server, int port, bool useTls)
         {

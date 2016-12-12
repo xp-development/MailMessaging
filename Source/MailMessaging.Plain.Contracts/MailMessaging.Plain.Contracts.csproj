@@ -52,6 +52,7 @@
     <Compile Include="Commands\IResponse.cs" />
     <Compile Include="Commands\ListCommand.cs" />
     <Compile Include="Commands\LoginCommand.cs" />
+    <Compile Include="Commands\LogoutCommand.cs" />
     <Compile Include="Commands\ResponseBase.cs" />
     <Compile Include="Commands\ResponseResult.cs" />
     <Compile Include="ConnectResult.cs" />

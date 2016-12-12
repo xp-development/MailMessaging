@@ -23,6 +23,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)_MailMessenger\ConnectAsync.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)_MailMessenger\List.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)_MailMessenger\Login.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)_MailMessenger\Logout.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)_MailMessenger\UnknownCommand.cs" />
   </ItemGroup>
   <ItemGroup>

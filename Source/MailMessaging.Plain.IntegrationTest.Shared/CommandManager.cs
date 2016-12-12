@@ -23,6 +23,11 @@ namespace MailMessaging.Plain.IntegrationTest
                 return BuildResponse(tag, "NO authentication failed");
             }
 
+            if (command.Equals("LOGOUT"))
+            {
+                return BuildResponse(tag, "OK LOGOUT completed", "* BYE Server logging out");
+            }
+
             if (command.Equals("LIST"))
             {
                 var referenceName = GetNextArgument(ref commandArgumentString);
