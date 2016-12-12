@@ -33,6 +33,18 @@ namespace MailMessaging.Plain.Core
             }
         }
 
+        public void Disconnect()
+        {
+            _tcpClient?.Disconnect();
+            IsConnected = false;
+        }
+
+        public void Dispose()
+        {
+            Disconnect();
+            _tcpClient = null;
+        }
+
         public async Task<TResponse> SendAsync<TRequest, TResponse>(ICommand<TRequest, TResponse> message)
             where TRequest : IRequest
             where TResponse : IResponse
@@ -63,6 +75,6 @@ namespace MailMessaging.Plain.Core
             return receivedMessage;
         }
 
-        private readonly ITcpClient _tcpClient;
+        private ITcpClient _tcpClient;
     }
 }

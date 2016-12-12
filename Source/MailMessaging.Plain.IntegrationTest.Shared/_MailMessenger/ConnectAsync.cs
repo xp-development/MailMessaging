@@ -26,7 +26,7 @@ namespace MailMessaging.Plain.IntegrationTest._MailMessenger
 
             var tcpClient = new TcpClient();
             var messenger = new MailMessenger(tcpClient);
-           messenger.ConnectAsync(account).Result.Should().Be(ConnectResult.Connected);
+            messenger.ConnectAsync(account).Result.Should().Be(ConnectResult.Connected);
         }
 
         [Fact]

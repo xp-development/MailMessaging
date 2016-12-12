@@ -21,6 +21,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)StreamWriter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)_MailMessenger\ConnectAsync.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)_MailMessenger\Disconnect.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)_MailMessenger\List.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)_MailMessenger\Login.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)_MailMessenger\Logout.cs" />

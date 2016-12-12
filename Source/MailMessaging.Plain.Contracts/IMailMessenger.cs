@@ -1,9 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using MailMessaging.Plain.Contracts.Commands;
 
 namespace MailMessaging.Plain.Contracts
 {
-    public interface IMailMessenger
+    public interface IMailMessenger : IDisposable
     {
         bool IsConnected { get; }
 
@@ -11,5 +12,6 @@ namespace MailMessaging.Plain.Contracts
         Task<TResponse> SendAsync<TRequest, TResponse>(ICommand<TRequest, TResponse> message)
             where TRequest : IRequest
             where TResponse : IResponse;
+        void Disconnect();
     }
 }
