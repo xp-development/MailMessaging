@@ -32,9 +32,5 @@ artifacts:
     name: MailMessaging.Plain.Net.nupkg
 
 deploy:
-  provider: NuGet
-  symbol_server: https://ci.appveyor.com/nuget/jan-schubert/api/v2/package
-  api_key:
-    secure: tfpw86y13294ewbqv9o8bhsd
-  skip_symbols: true
-  artifact: /MailMessaging\.Plain\..*\.nupkg/
+  appveyor PushArtifact build/MailMessaging.Plain.Net.nuspec
+  appveyor PushArtifact build/MailMessaging.Plain.Contracts.nuspec
