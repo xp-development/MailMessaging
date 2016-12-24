@@ -33,7 +33,8 @@ artifacts:
 
 deploy:
   provider: NuGet
+  symbol_server: https://ci.appveyor.com/nuget/jan-schubert/api/v2/package
   api_key:
-    secure: EEzMZXyGYmDBGcZfcOsS1QB+8iHT760Kg/ML6l0jHL+wxqMaZYqWSztF0VlpyBCL
+    secure: tfpw86y13294ewbqv9o8bhsd
   skip_symbols: true
   artifact: /MailMessaging\.Plain\..*\.nupkg/
