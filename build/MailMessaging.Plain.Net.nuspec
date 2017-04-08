@@ -2,7 +2,7 @@
 <package>
     <metadata>
         <id>MailMessaging.Plain.Net</id>
-        <version>$Version$</version>
+        <version>$Version$-alpha</version>
         <title>MailMessaging.Plain.Net</title>
         <description>MailMessaging.Plain.Net</description>
         <summary />

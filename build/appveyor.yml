@@ -8,10 +8,6 @@ configuration: Release
 before_build:
 - ps: nuget restore Source\MailMessaging.sln
 
-nuget:
-  account_feed: true
-  project_feed: true
-
 build:
   verbosity: minimal
 
@@ -36,5 +32,9 @@ artifacts:
     name: MailMessaging.Plain.Net.nupkg
 
 deploy:
-  appveyor PushArtifact build/MailMessaging.Plain.Net.nuspec
-  appveyor PushArtifact build/MailMessaging.Plain.Contracts.nuspec
+  provider: NuGet
+  symbol_server: https://ci.appveyor.com/nuget/jan-schubert/api/v2/package
+  api_key:
+    secure: EEzMZXyGYmDBGcZfcOsS1QB+8iHT760Kg/ML6l0jHL+wxqMaZYqWSztF0VlpyBCL
+  skip_symbols: true
+  artifact: /MailMessaging\.Plain\..*\.nupkg/

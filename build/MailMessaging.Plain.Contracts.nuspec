@@ -2,7 +2,7 @@
 <package>
     <metadata>
         <id>MailMessaging.Plain.Contracts</id>
-        <version>$Version$</version>
+        <version>$Version$-alpha</version>
         <title>MailMessaging.Plain.Contracts</title>
         <description>MailMessaging.Plain.Contracts</description>
         <summary />
