@@ -29,13 +29,13 @@ namespace MailMessaging.Plain.IntegrationTest
 
         protected MailMessenger GetLoggedInMailMessenger()
         {
-            var account = new Account(TestServer, TestPort, false);
+			var account = new Account(TestServer, TestPort, false);
 
-            var tcpClient = new TcpClient();
+			var tcpClient = new TcpClient();
             var messenger = new MailMessenger(tcpClient);
             messenger.ConnectAsync(account).Result.Should().Be(ConnectResult.Connected);
 
-            messenger.SendAsync(new LoginCommand(TagService, "validUserName", "validPassword")).Result.Result.Should().Be(ResponseResult.OK);
+			messenger.SendAsync(new LoginCommand(TagService, "validUserName", "validPassword")).Result.Result.Should().Be(ResponseResult.OK);
             return messenger;
         }
 

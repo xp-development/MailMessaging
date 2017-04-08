@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text;
 
 namespace MailMessaging.Plain.IntegrationTest
@@ -39,6 +40,19 @@ namespace MailMessaging.Plain.IntegrationTest
                     AddMailboxFolder(path, folders, mailFolder);
 
                 return BuildResponse(tag, "OK " + command + " completed", folders.ToString());
+            }
+
+            if (command.Equals("SELECT"))
+            {
+                var mailboxName = GetNextArgument(ref commandArgumentString);
+				if(_fakeAccount.MailFolders.All(x => x.Name != mailboxName))
+					return BuildResponse(tag, "NO unknown folder");
+
+	            var informations = "* 5 EXISTS\r\n";
+	            informations += "* 2 RECENT\r\n";
+	            informations += "* FLAGS (\\Answered \\Flagged \\Deleted \\Seen \\Draft)\r\n";
+
+				return BuildResponse(tag, "OK [READ-WRITE]" + command + " completed", informations);
             }
 
             return BuildResponse(tag, "BAD unknown command");

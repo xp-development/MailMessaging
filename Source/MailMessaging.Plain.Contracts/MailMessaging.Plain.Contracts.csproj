@@ -53,8 +53,10 @@
     <Compile Include="Commands\ListCommand.cs" />
     <Compile Include="Commands\LoginCommand.cs" />
     <Compile Include="Commands\LogoutCommand.cs" />
+    <Compile Include="Commands\MailboxPermission.cs" />
     <Compile Include="Commands\ResponseBase.cs" />
     <Compile Include="Commands\ResponseResult.cs" />
+    <Compile Include="Commands\SelectCommand.cs" />
     <Compile Include="ConnectResult.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="IMailMessenger.cs" />

@@ -8,3 +8,4 @@ Source/MailMessaging.sln.DotSettings.user
 **/bin/TestDebug/**
 **/obj/TestDebug/**
 Source/.idea/**
+/Source/.vs/MailMessaging/v15/.suo
