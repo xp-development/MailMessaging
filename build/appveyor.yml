@@ -2,7 +2,7 @@ branches:
     only:
       - master
 
-version: 2016.0.{build}
+version: 2017.0.{build}
 configuration: Release
 
 before_build:
